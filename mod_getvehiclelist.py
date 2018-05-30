@@ -55,16 +55,24 @@ def getVehicleDossierDescr():
         key = data['indexes'][index]
         blockBuilder = descr[key]
         print index, key, type(blockBuilder)
+        d = data['layout'][index] = { 'name': key }
         if isinstance(blockBuilder, dossiers2.common.DossierBlocks.StaticDossierBlockDescr):
-            data['layout'][index] = { 'name': key, 'format': blockBuilder._StaticDossierBlockDescr__format, 'recordsLayout': blockBuilder._StaticDossierBlockDescr__recordsLayout }
+            d['class'] = 'StaticDossierBlockDescr'
+            d['blockSize'] = blockBuilder._StaticDossierBlockDescr__blockSize
+            d['format'] = blockBuilder._StaticDossierBlockDescr__format
+            d['recordsLayout'] = blockBuilder._StaticDossierBlockDescr__recordsLayout
         elif isinstance(blockBuilder, dossiers2.common.DossierBlocks.ListDossierBlockDescr):
-            data['layout'][index] = { 'name': key, 'itemFormat': blockBuilder._ListDossierBlockDescr__itemFormat }
+            d['class'] = 'ListDossierBlockDescr'
+            d['itemSize'] = blockBuilder._ListDossierBlockDescr__itemSize
+            d['itemFormat'] = blockBuilder._ListDossierBlockDescr__itemFormat
         elif isinstance(blockBuilder, dossiers2.common.DossierBlocks.DictDossierBlockDescr):
-            data['layout'][index] = { 'name': key, 'itemFormat': blockBuilder._DictDossierBlockDescr__itemFormat }
+            d['class'] = 'DictDossierBlockDescr'
+            d['itemSize'] = blockBuilder._DictDossierBlockDescr__itemSize
+            d['itemFormat'] = blockBuilder._DictDossierBlockDescr__itemFormat
         elif isinstance(blockBuilder, dossiers2.common.DossierBlocks.BinarySetDossierBlockDescr):
-            data['layout'][index] = { 'name': key, 'class': '(BinarySetDossierBlockDescr)' }
+            d['class'] = 'BinarySetDossierBlockDescr'
         else:
-            data['layout'][index] = { 'name': key, 'class': '"{}"'.format(type(blockBuilder)) }
+            d['class'] = '{}'.format(type(blockBuilder))
             print 'unknwon: {}'.format(type(blockBuilder))
     pprint(data)
     saveDataJSON(FILE_DOSSIERDESCR, data)
