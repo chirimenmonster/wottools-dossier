@@ -19,7 +19,7 @@ attrs = { i:a for i,a in enumerate(('xp', 'battlesCount', 'wins', 'losses', 'sur
 with open('dossierdescr.json', 'r') as fp:
     dossierDescr = json.load(fp)
     dossierBlockIndexes = { int(i):v for i,v in dossierDescr['indexes'].items() }
-    print dossierBlockIndexes
+    #print dossierBlockIndexes
 
 with open('vehiclelist.json', 'r') as fp:
     vehicleDict = { v[0]:v[3] for v in json.load(fp) }
@@ -56,4 +56,4 @@ for (_, tankID), (timestamp, dossier) in rawdata.items():
 for r in sorted(result, key=lambda x: x['update']):
     list = filter(lambda x:x[1] > 0, zip(dossierBlockIndexes.values(), r['blocksize']))
     d = ','.join(map(lambda x:x[0], list))
-    print '{:>40s}: lastupdate= {}, version= {:4}, battlesCount= {:4}, d={}'.format(r['vehicle'], datetime.fromtimestamp(r['update']), r['version'], r['random'].get('battlesCount', 0), d)
+    print '{:>40s}: update= {}, version= {:4}, nblocks={:2}, random.battlesCount= {:4}'.format(r['vehicle'], datetime.fromtimestamp(r['update']), r['version'], len(r['blocksize']), r['random'].get('battlesCount', 0))
