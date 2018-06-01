@@ -9,51 +9,69 @@ FILE = 'test.dat'
 nations = { i:n for i,n in enumerate(('ussr', 'germany', 'usa', 'china', 'france', 'uk',
     'japan', 'czech', 'sweden', 'poland', 'italy')) }
 
-attrs = { i:a for i,a in enumerate(('xp', 'battlesCount', 'wins', 'losses', 'survivedBattles',
-    'frags', 'shots', 'directHits', 'spotted', 'damageDealt',
-    'damageReceived', 'capturePoints', 'droppedCapturePoints',
-    'xpBefore8_8', 'battlesCountBefore8_8', 'winAndSurvived',
-    'frags8p', 'battlesCountBefore9_0')) }
-
 
 with open('dossierdescr.json', 'r') as fp:
     dossierDescr = json.load(fp)
-    dossierBlockIndexes = { int(i):v for i,v in dossierDescr['indexes'].items() }
-    #print dossierBlockIndexes
+    DOSSIER_BLOCK_INDEXES = { v:int(i) for i,v in dossierDescr['indexes'].items() }
+    DOSSIER_LAYOUTS = {}
+    for d in dossierDescr['layout'].values():
+        if d['class'] == 'StaticDossierBlockDescr':
+            DOSSIER_LAYOUTS[d['name']] = {}
+            DOSSIER_LAYOUTS[d['name']]['format'] = d['format']
+            DOSSIER_LAYOUTS[d['name']]['recordsLayout'] = [ p[0] for p in d['recordsLayout'] ]
+
+with open('blockslayout.json', 'r') as fp:
+    DOSSIER_BLOCKS_LAYOUTS = json.load(fp)
 
 with open('vehiclelist.json', 'r') as fp:
-    vehicleDict = { v[0]:v[3] for v in json.load(fp) }
+    VEHICLE_DICT = { v[0]:v for v in json.load(fp) }
 
-with open(FILE, 'r') as fp:
-    version, rawdata = pickle.load(fp)
 
-result = []
-for (_, tankID), (timestamp, dossier) in rawdata.items():
-    vehicle = vehicleDict.get(tankID, None)
-    if not vehicle:
-        nation = nations[tankID >> 4 & 15]
-        itemID = tankID >> 8 & 65535
-        vehicle = '{}:({})'.format(nation, itemID)
-    #print vehicle, datetime.fromtimestamp(timestamp)
-    version = struct.unpack_from('<H', dossier)[0]
-    size = offset = 2
-    blocksize = []
-    while size < len(dossier):
-        blocksize.append(struct.unpack_from('<H', dossier, offset)[0])
-        offset += 2
-        size += 2 + blocksize[-1]
-    bstr = ', '.join(map('{:4d}'.format, blocksize))
-    descr = { 'vehicle': vehicle, 'update': timestamp, 'version': version,
-        'blocksize': blocksize }
-    if blocksize[0] > 0:
-        data = struct.unpack_from('<IIIIIIIIIIIIIIIIII', dossier, offset)
-        stats = { k: data[i] for i, k in attrs.items() }
-        descr['random'] = stats
+def getVehicleName(compactDescr):
+    info = VEHICLE_DICT.get(compactDescr, None)
+    if info:
+        name = info[3]
     else:
-        descr['random'] = {}
-    result.append(descr)
+        nation = nations[compactDescr >> 4 & 15]
+        itemId = compactDescr >> 8 & 65535
+        name = '{}:({})'.format(nation, itemId)
+    return name
+
+
+def loadVehiclesDossier(file):
+    with open(file, 'r') as fp:
+        _, rawdata = pickle.load(fp)
+
+    result = []
+    for (_, ownerId), (timestamp, dossierCompDescr) in rawdata.items():
+        vehicle = getVehicleName(ownerId)
+        version = struct.unpack_from('<H', dossierCompDescr)[0]
+        
+        nBlocks = DOSSIER_BLOCKS_LAYOUTS[str(version)]['nBlocks']
+        blockSize = struct.unpack_from('<{:d}H'.format(nBlocks), dossierCompDescr, 2)
+        blockOffset = [0] * len(blockSize)
+        for i in range(len(blockSize) - 1):
+            blockOffset[i + 1] = blockOffset[i] + blockSize[i] 
+
+        descr = { 'vehicle': vehicle, 'update': timestamp, 'version': version,
+            'blockSize': blockSize, 'random': {} }
+
+        baseOffset = 2 + nBlocks * 2
+        if blockSize[DOSSIER_BLOCK_INDEXES['a15x15']] > 0:
+            offset = baseOffset + blockOffset[DOSSIER_BLOCK_INDEXES['a15x15']]
+            data = struct.unpack_from(DOSSIER_LAYOUTS['a15x15']['format'], dossierCompDescr, offset)
+            stats = { k: data[i] for i, k in enumerate(DOSSIER_LAYOUTS['a15x15']['recordsLayout']) }
+            descr['random'] = stats
+
+        result.append(descr)
+    return result
+
+
+result = loadVehiclesDossier(FILE)
 
 for r in sorted(result, key=lambda x: x['update']):
-    list = filter(lambda x:x[1] > 0, zip(dossierBlockIndexes.values(), r['blocksize']))
-    d = ','.join(map(lambda x:x[0], list))
-    print '{:>40s}: update= {}, version= {:4}, nblocks={:2}, random.battlesCount= {:4}'.format(r['vehicle'], datetime.fromtimestamp(r['update']), r['version'], len(r['blocksize']), r['random'].get('battlesCount', 0))
+    #list = filter(lambda x:x[1] > 0, zip(dossierBlockIndexes.values(), r['blockSize']))
+    #d = ','.join(map(lambda x:x[0], list))
+    battlesCount = r['random'].get('battlesCount', None)
+    if battlesCount:
+        print '{:>40s}: update= {}, version= {:4}, random.battlesCount= {:4}'.format(r['vehicle'], datetime.fromtimestamp(r['update']), r['version'], battlesCount)
