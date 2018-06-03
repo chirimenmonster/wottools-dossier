@@ -53,8 +53,8 @@ def loadVehiclesDossier(file):
         for i in range(len(blockSize) - 1):
             blockOffset[i + 1] = blockOffset[i] + blockSize[i] 
 
-        descr = { 'vehicle': vehicle, 'update': timestamp, 'version': version,
-            'blockSize': blockSize, 'random': {} }
+        descr = { 'id': ownerId, 'vehicle': vehicle, 'update': timestamp, 'version': version,
+            'blockSize': blockSize }
 
         baseOffset = 2 + nBlocks * 2
         if blockSize[DOSSIER_BLOCK_INDEXES['a15x15']] > 0:
@@ -72,6 +72,10 @@ result = loadVehiclesDossier(FILE)
 for r in sorted(result, key=lambda x: x['update']):
     #list = filter(lambda x:x[1] > 0, zip(dossierBlockIndexes.values(), r['blockSize']))
     #d = ','.join(map(lambda x:x[0], list))
-    battlesCount = r['random'].get('battlesCount', None)
-    if battlesCount:
+    if 'random' in r:
+        battlesCount = r['random'].get('battlesCount', None)
         print '{:>40s}: update= {}, version= {:4}, random.battlesCount= {:4}'.format(r['vehicle'], datetime.fromtimestamp(r['update']), r['version'], battlesCount)
+
+with open('result.json', 'w') as fp:
+    json.dump(result, fp)
+
