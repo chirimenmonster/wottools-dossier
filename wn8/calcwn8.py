@@ -2,6 +2,7 @@
 
 import argparse
 import wgapi
+from wgapi import CachedDatabase
 
 
 def calcWN8(avg, exp):
@@ -28,46 +29,82 @@ def calcWN8(avg, exp):
     return WN8
 
 
-def getWN8(stats, wn8Exp):
+class WN8Data(CachedDatabase):
+    cacheLifetime = 60 * 60 * 24 * 1
     statsKeys = ( 'damage_dealt', 'spotted', 'frags', 'dropped_capture_points' )
     wn8ExpKeys = ( 'expDamage', 'expSpot', 'expFrag', 'expDef' )
-    totalStats = { k:0 for k in statsKeys + ( 'wins', 'battles' ) }
-    totalExpected = { k:0 for k in wn8ExpKeys + ( 'expWins', ) }
-    
-    for tankId in stats.keys():
-        value = stats[tankId]
-        expected = wn8Exp.get(tankId)
-        battles = value['battles']
-        winRate = float(value['wins']) / battles * 100
-        avg = [ float(value[k]) / battles for k in statsKeys ] + [ winRate ]
-        exp = [ expected[k] for k in wn8ExpKeys + ( 'expWinRate', ) ]
 
-        value['wn8'] = calcWN8(avg, exp)
+    def __init__(self, accountId):
+        self.__accountId = str(accountId)
+        super(WN8Data, self).__init__()
 
-        for key in totalStats.keys():
-            totalStats[key] += value[key]
-        for key in wn8ExpKeys:
-            totalExpected[key] += expected[key] * battles
-        totalExpected['expWins'] += expected['expWinRate'] * battles / 100
+    @property
+    def cacheFile(self):
+        return 'wn8data_{}.json'.format(self.__accountId)
 
-    battles = totalStats['battles']
-    winRate = float(totalStats['wins']) / battles * 100
-    expWinRate = float(totalExpected['expWins']) / battles * 100
-    avg = [ float(totalStats[k]) / battles for k in statsKeys ] + [ winRate ]
-    exp = [ totalExpected[k] / battles for k in wn8ExpKeys ] + [ expWinRate ]
-    wn8 = calcWN8(avg, exp)
-    return battles, wn8
+    def fetch(self):
+        vehicleDB = wgapi.VehicleDatabase()
+        self.vehicleStats = wgapi.PlayerVehicleStats(self.__accountId)
+        self.wn8Exp = wgapi.WN8Exp()
+        self.cache = {}
+        stats = { k: v['random'] for k, v in self.vehicleStats.items() }
+        self.cache = {
+            'palyer': { 'account_id': self.__accountId },
+            'total': None,
+            'vehicles': {}
+        }
+        for tankId in self.vehicleStats.keys():
+            self._fetchVehicle(tankId)
+        self._fetchTotal()
+        self.saveCache()
+
+    def _fetchVehicle(self, tankId):
+        stats = self.vehicleStats.get(tankId)['random']
+        wn8Exps = self.wn8Exp.get(tankId)
+        battles = stats['battles']
+        winRate = float(stats['wins']) / battles * 100
+        avg = [ float(stats[k]) / battles for k in self.statsKeys ] + [ winRate ]
+        exp = [ wn8Exps[k] for k in self.wn8ExpKeys + ( 'expWinRate', ) ]
+        wn8 = calcWN8(avg, exp)
+        result = self.cache['vehicles'][tankId] =  { 'battles': battles, 'wn8': wn8 }
+        return result
+
+    def _fetchTotal(self):
+        totalStats = { k:0 for k in self.statsKeys + ( 'wins', 'battles' ) }
+        totalWn8Exps = { k:0 for k in self.wn8ExpKeys + ( 'expWins', ) }
+        for tankId in self.vehicleStats.keys():
+            stats = self.vehicleStats.get(tankId)['random']
+            wn8Exps = self.wn8Exp.get(tankId)
+            battles = stats['battles']
+            for key in totalStats.keys():
+                totalStats[key] += stats[key]
+            for key in self.wn8ExpKeys:
+                totalWn8Exps[key] += wn8Exps[key] * battles
+            totalWn8Exps['expWins'] += wn8Exps['expWinRate'] * battles / 100
+        battles = totalStats['battles']
+        winRate = float(totalStats['wins']) / battles * 100
+        expWinRate = float(totalWn8Exps['expWins']) / battles * 100
+        avg = [ float(totalStats[k]) / battles for k in self.statsKeys ] + [ winRate ]
+        exp = [ totalWn8Exps[k] / battles for k in self.wn8ExpKeys ] + [ expWinRate ]
+        wn8 = calcWN8(avg, exp)
+        result = self.cache['total'] = { 'battles': battles, 'wn8': wn8 }
+        return result
+
+    def getVehicles(self):
+        return self.cache['vehicles'].keys()
+
+    def get(self, tankId):
+        return self.cache['vehicles'][tankId]
+
+    def getTotal(self):
+        return self.cache['total']
 
 
 def main(config):
-    vehicleDB = wgapi.VehicleDatabase()
     accountId = wgapi.PlayerList().get(config.nickname)['account_id']
-    playerVehicleStats = wgapi.PlayerVehicleStats(accountId)
-    wn8Exp = wgapi.WN8Exp()
-
-    stats = { k: v['random'] for k, v in playerVehicleStats.items() }
-    battles, wn8 = getWN8(stats, wn8Exp)
-
+    wn8Data = WN8Data(accountId)
+    
+    vehicleDB = wgapi.VehicleDatabase()
     order = {}
     order['tier'] = lambda x: - vehicleDB.getOrder(x, 'tier')
     order['type'] = lambda x: vehicleDB.getOrder(x, 'type')
@@ -75,13 +112,14 @@ def main(config):
 
     template = u'{:>8}  {:^5} {:8} {:^6} {:24} {:>8} {:>6}'
     print template.format('id', 'tier', 'nation', 'type', 'name', 'battles', 'wn8')
-
-    for tankId in sorted(stats.keys(), key=lambda x: [ order[k](x) for k in 'tier', 'type', 'nation' ]):
+    for tankId in sorted(wn8Data.getVehicles(), key=lambda x: [ order[k](x) for k in 'tier', 'type', 'nation' ]):
+        stats = wn8Data.get(tankId)
         vehicle = vehicleDB.get(tankId)
         type = vehicleDB.getType(tankId)
         print template.format(tankId, vehicle['tier'], vehicle['nation'], type, vehicle['name'],
-                stats[tankId]['battles'], int(round(stats[tankId]['wn8'])))
-    print template.format('', '', '', '', 'total', battles, int(round(wn8)))
+                stats['battles'], int(round(stats['wn8'])))
+    total = wn8Data.getTotal()
+    print template.format('', '', '', '', 'total', total['battles'], int(round(total['wn8'])))
 
 
 if __name__ == '__main__':
