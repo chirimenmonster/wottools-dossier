@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*- 
 
+import sys
+import codecs
 import argparse
 import wgapi
 from wgapi import CachedDatabase
+
+sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 
 
 def calcWN8(avg, exp):
@@ -43,7 +47,7 @@ class WN8Data(CachedDatabase):
         return 'wn8data_{}.json'.format(self.__accountId)
 
     def fetch(self):
-        vehicleDB = wgapi.VehicleDatabase()
+        self.vehicleDB = wgapi.VehicleDatabase()
         self.vehicleStats = wgapi.PlayerVehicleStats(self.__accountId)
         self.wn8Exp = wgapi.WN8Exp()
         self.cache = {}
@@ -115,9 +119,16 @@ def main(config):
     for tankId in sorted(wn8Data.getVehicles(), key=lambda x: [ order[k](x) for k in 'tier', 'type', 'nation' ]):
         stats = wn8Data.get(tankId)
         vehicle = vehicleDB.get(tankId)
+        tier = vehicle['tier'] if vehicle else ''
         type = vehicleDB.getType(tankId)
-        print template.format(tankId, vehicle['tier'], vehicle['nation'], type, vehicle['name'],
-                stats['battles'], int(round(stats['wn8'])))
+        name = vehicle['name'] if vehicle else ''
+        if vehicle:
+            nation = vehicle['nation']
+        else:
+            nation = wgapi.NATION_NAMES[int(tankId) >> 4 & 15]
+        battles = stats['battles']
+        wn8 = int(round(stats['wn8']))
+        print template.format(tankId, tier, nation, type, name, battles, wn8)
     total = wn8Data.getTotal()
     print template.format('', '', '', '', 'total', total['battles'], int(round(total['wn8'])))
 

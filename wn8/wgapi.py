@@ -90,16 +90,22 @@ class VehicleDatabase(CachedDatabase):
         self.order['type'] = dict((n, i) for i, n in enumerate(VEHICLE_ORDER))
 
     def get(self, tankId):
-        return self.cache['data'][str(tankId)]
+        return self.cache['data'].get(str(tankId), None)
 
     def getId(self, tankId, key):
-        value = self.get(tankId)[key]
+        vehicle = self.get(tankId)
+        if vehicle is None:
+            return 0
+        value = vehicle[key]
         if key in self.index:
             return self.index[key][value]
         return value
 
     def getOrder(self, tankId, key):
-        value = self.get(tankId)[key]
+        vehicle = self.get(tankId)
+        if vehicle is None:
+            return 0
+        value = vehicle[key]
         if key in self.order:
             return self.order[key][value]
         return self.getId(tankId, key)
