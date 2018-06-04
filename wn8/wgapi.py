@@ -1,221 +1,220 @@
 import os
 import urllib
+import urllib2
 import json
 from datetime import datetime
 import time
 
 URL_WGAPI = 'https://api.worldoftanks.asia'
 APPLICATION_ID = 'demo'
-accountId = '2003019760'
 
 CACHE_DIR = 'cache'
-CACHE_VEHICLE_DATABASE = os.path.join(CACHE_DIR, 'vehicledb.json')
-CACHE_PLAYER_VEHICLES = os.path.join(CACHE_DIR, 'playervehicles.json')
-CACHE_PLAYER_VEHICLE_STATS = os.path.join(CACHE_DIR, 'playervehiclestats.json')
 
 
-class VehicleDatabase(object):
+class CachedDatabase(object):
+    cache = None
+    cacheLifetime = 0
+    cacheDir = CACHE_DIR
+    cacheFile = None
+    sourceURL = None
+    requestParam = None
 
     def __init__(self):
-        self.__cache = None
         if not self.isExistsCache():
-            result = self.fetch()
-        self.read()
+            self.fetch()
+        self.readCache()
+
+    @property
+    def cachePath(self):
+        return os.path.join(self.cacheDir, self.cacheFile)
 
     def isExistsCache(self):
-        if not os.path.exists(CACHE_VEHICLE_DATABASE):
+        if not os.path.exists(self.cachePath):
             return False
-        s = os.stat(CACHE_VEHICLE_DATABASE)
-        if time.mktime(datetime.now().timetuple()) - s.st_mtime > 60 * 60 * 24 * 7:
+        stat = os.stat(self.cachePath)
+        if time.mktime(datetime.now().timetuple()) - stat.st_mtime > self.cacheLifetime:
             return False
         return True
 
-    def fetch(self):
-        if not os.path.exists(CACHE_DIR):
-            os.mkdir(CACHE_DIR)
-        url = URL_WGAPI + '/wot/encyclopedia/vehicles/'
-        param = {
-            'application_id': APPLICATION_ID,
-            'fields': 'tank_id,tag,name,nation,tier,type'
-        }
-        response = urllib.urlopen(url + '?' + urllib.urlencode(param)).read()
-        self.__cache = json.loads(response)
-        with open(CACHE_VEHICLE_DATABASE, 'w') as fp:
-            json.dump(self.__cache, fp)
+    def saveCache(self):
+        if not os.path.exists(self.cacheDir):
+            os.mkdir(self.cacheDir)
+        with open(self.cachePath, 'w') as fp:
+            json.dump(self.cache, fp)
 
-    def read(self):
-        if self.__cache:
+    def readCache(self):
+        if self.cache:
             return
-        with open(CACHE_VEHICLE_DATABASE, 'r') as fp:
-            self.__cache = json.load(fp)
+        with open(self.cachePath, 'r') as fp:
+            self.cache = json.load(fp)
 
-    def get(self, tankId):
-        return self.__cache['data'][str(tankId)]
+    def fetchJSON(self, url, param):
+        if param:
+            url += '?' + urllib.urlencode(param)
+        response = urllib2.urlopen(url).read()
+        return json.loads(response)
+
+    def fetch(self):
+        data = self.fetchJSON(self.sourceURL, self.requestParam)
+        self.cache = data
+        self.saveCache()
+   
+    def dump(self):
+        return self.cache
 
         
-class PlayerNames(object):
+class VehicleDatabase(CachedDatabase):
+    cacheLifetime = 60 * 60 * 24 * 7
+    cacheFile = 'vehicledb.json'
+    sourceURL = URL_WGAPI + '/wot/encyclopedia/vehicles/'
+    requestParam = {
+        'application_id': APPLICATION_ID,
+        'fields': 'tank_id,tag,name,nation,tier,type'
+    }
 
-    def __init__(self, accountName):
-        self.__cache = None
-        self.__accountId = accountId
-        self.__cacheDir = CACHE_DIR
-        self.__cacheFile = os.path.join(self.__cacheDir, 'playernames.json')
-        if not self.isExistsCache():
-            result = self.fetch()
-        self.read()
-
-    def isExistsCache(self):
-        if not os.path.exists(self.__cacheFile):
-            return False
-        s = os.stat(self.__cacheFile)
-        if time.mktime(datetime.now().timetuple()) - s.st_mtime > 60 * 60 * 24 * 1:
-            return False
-        return True
-
-    def fetch(self):
-        url = URL_WGAPI + '/wot/account/list'
-        param = {
-            'application_id': APPLICATION_ID,
-            'search': self.__accountName,
-            'type': 'exact'
-        }
-        response = urllib.urlopen(url + '?' + urllib.urlencode(param)).read()
-        result = json.loads(response)
-        self.__cache[result['data']['nickname']] = result['data']['accontId']
-        if not os.path.exists(self.__cacheDir):
-            os.mkdir(self.__cacheDir)
-        with open(self.__cacheFile, 'w') as fp:
-            json.dump(self.__cache, fp)
-
-    def read(self):
-        if self.__cache:
-            return
-        with open(self.__cacheFile, 'r') as fp:
-            self.__cache = json.load(fp)
+    def get(self, tankId):
+        return self.cache['data'][str(tankId)]
 
 
-class PlayerVehicles(object):
+class PlayerVehicles(CachedDatabase):
+    cacheLifetime = 60 * 60 * 24 * 1
+    sourceURL = URL_WGAPI + '/wot/account/tanks/'
 
     def __init__(self, accountId):
-        self.__cache = None
-        self.__accountId = accountId
-        self.__cacheDir = CACHE_DIR
-        self.__cacheFile = os.path.join(self.__cacheDir, 'playervehicles_{}.json'.format(accountId))
-        if not self.isExistsCache():
-            result = self.fetch()
-        self.read()
+        self.__accountId = str(accountId)
+        super(PlayerVehicles, self).__init__()
 
-    def isExistsCache(self):
-        if not os.path.exists(self.__cacheFile):
-            return False
-        s = os.stat(self.__cacheFile)
-        if time.mktime(datetime.now().timetuple()) - s.st_mtime > 60 * 60 * 24 * 1:
-            return False
-        return True
+    @property
+    def cacheFile(self):
+        return 'playervehicles_{}.json'.format(self.__accountId)
 
-    def fetch(self):
-        if not os.path.exists(self.__cacheDir):
-            os.mkdir(self.__cacheDir)
-        url = URL_WGAPI + '/wot/account/tanks/'
-        param = {
+    @property
+    def requestParam(self):
+        return {
             'application_id': APPLICATION_ID,
             'account_id': self.__accountId,
             'fields': 'tank_id'
         }
-        response = urllib.urlopen(url + '?' + urllib.urlencode(param)).read()
-        self.__cache = json.loads(response)
-        with open(self.__cacheFile, 'w') as fp:
-            json.dump(self.__cache, fp)
-
-    def read(self):
-        if self.__cache:
-            return
-        with open(self.__cacheFile, 'r') as fp:
-            self.__cache = json.load(fp)
-
-    def dump(self):
-        return self.__cache
 
     def list(self):
-        return [ v['tank_id'] for v in self.__cache['data'][self.__accountId] ]
+        return [ v['tank_id'] for v in self.cache['data'][self.__accountId] ]
 
 
-class PlayerVehicleStats(object):
+class PlayerVehicleStats(CachedDatabase):
+    cacheLifetime = 60 * 60 * 24 * 1
+    sourceURL = URL_WGAPI + '/wot/tanks/stats/'
 
     def __init__(self, accountId):
-        self.__cache = None
-        self.__accountId = accountId
-        self.__cacheDir = CACHE_DIR
-        self.__cacheFile = os.path.join(self.__cacheDir, 'playervehiclestats_{}.json'.format(accountId))
-        if not self.isExistsCache():
-            result = self.fetch()
-        self.read()
+        self.__accountId = str(accountId)
+        self.__vehicleList = PlayerVehicles(self.__accountId).list()
+        super(PlayerVehicleStats, self).__init__()
 
-    def isExistsCache(self):
-        if not os.path.exists(self.__cacheFile):
-            return False
-        s = os.stat(self.__cacheFile)
-        if time.mktime(datetime.now().timetuple()) - s.st_mtime > 60 * 60 * 24 * 1:
-            return False
-        return True
+    @property
+    def cacheFile(self):
+        return 'playervehiclestats_{}.json'.format(self.__accountId)
 
-    def __fetch(self, tankList):
-        url = URL_WGAPI + '/wot/tanks/stats/'
-        param = {
+    @property
+    def requestParam(self):
+        fields = ( 'tank_id', 'random.battles', 'random.wins', 'random.spotted', 'random.frags',
+                'random.damage_dealt', 'random.dropped_capture_points' )
+        return {
             'application_id': APPLICATION_ID,
             'account_id': self.__accountId,
-            'tank_id': ','.join(map(str, tankList)),
             'extra': 'random',
-            'fields': 'tank_id,random.battles,random.wins,random.spotted,random.frags,random.damage_dealt,random.dropped_capture_points'
+            'fields': ','.join(fields)
         }
-        response = urllib.urlopen(url + '?' + urllib.urlencode(param)).read()
-        return json.loads(response)
 
     def fetch(self):
-        playerVehicles = PlayerVehicles(self.__accountId)
-        list = playerVehicles.list()
-        self.__cache = {}
-        while len(list) > 0:
-            if len(list) > 100:
-                curr = list[:100]
-                list = list[100:]
+        self.cache = {}
+        rest = self.__vehicleList
+        while rest:
+            if len(rest) > 100:
+                curr, rest = rest[:100], rest[100:]
             else:
-                curr = list
-                list = []
-            result = self.__fetch(curr)
+                curr, rest = rest, []
+            param = self.requestParam
+            param['tank_id'] = ','.join(map(str, curr))
+            result = self.fetchJSON(self.sourceURL, param)
             for stats in result['data'][self.__accountId]:
-                self.__cache[str(stats['tank_id'])] = stats
-        if not os.path.exists(self.__cacheDir):
-            os.mkdir(self.__cacheDir)
-        with open(self.__cacheFile, 'w') as fp:
-            json.dump(self.__cache, fp)
+                self.cache[str(stats['tank_id'])] = stats
+        self.saveCache()
 
-    def read(self):
-        if self.__cache:
-            return
-        with open(self.__cacheFile, 'r') as fp:
-            self.__cache = json.load(fp)
-
-    def dump(self):
-        return self.__cache
-    
     def get(self, tankId):
-        return self.__cache[str(tankId)]
+        return self.cache[str(tankId)]
 
+        
+class PlayerList(CachedDatabase):
+    cacheLifetime = 60 * 60 * 24 * 1
+    cacheFile = 'playerlist.json'
+    sourceURL = URL_WGAPI + '/wot/account/list/'
+
+    def __init__(self):
+        self.cache = {}
+        if os.path.exists(self.cachePath):
+            self.readCache()
+
+    @property
+    def requestParam(self):
+        return {
+            'application_id': APPLICATION_ID,
+            'search': self.__accountName,
+            'type': 'exact'
+        }
+
+    def fetch(self):
+        result = self.fetchJSON(self.sourceURL, self.requestParam)
+        print result
+        if not result['data']:
+            raise 'not found'
+        data = result['data'][0]
+        print data
+        data['timestamp'] = int(time.mktime(datetime.now().timetuple()))
+        self.cache[data['nickname']] = data
+        self.saveCache()
+
+    def get(self, accountName):
+        stat = self.cache.get(accountName, None)
+        if stat and time.mktime(datetime.now().timetuple()) - stat['timestamp'] <= self.cacheLifetime:
+            return stat
+        self.__accountName = accountName
+        self.fetch()
+        return self.cache.get(accountName, None)
+
+
+class WN8Exp(CachedDatabase):
+    cacheLifetime = 60 * 60 * 12
+    cacheFile = 'wn8exp.json'
+    sourceURL = 'https://static.modxvm.com/wn8-data-exp/json/wn8exp.json'
+
+    def readCache(self):
+        super(WN8Exp, self).readCache()
+        self.cache
+        self.__data = {}
+        for row in self.cache['data']:
+            self.__data[str(row['IDNum'])] = row
+
+    def get(self, tankId):
+        return self.__data[str(tankId)]
 
 
 if __name__ == '__main__':
     vehicleDatabase = VehicleDatabase()
-    result = vehicleDatabase.get(59681)
+
+    playerList = PlayerList()
+    result = playerList.get('Chirimen')
     print result
-    
-    playerVehicles = PlayerVehicles(accountId)
-    result = playerVehicles.list()
-    print result
+
+    accountId = result['account_id']
 
     playerVehicleStats = PlayerVehicleStats(accountId)
     result = playerVehicleStats.dump()
-    print result
+    tank_id = result.keys()[0]
     print len(result)
-    result = playerVehicleStats.get(897)
+    result = playerVehicleStats.get(tank_id)
+    print result
+    result = vehicleDatabase.get(tank_id)
+    print result
+
+    wn8Exp = WN8Exp()
+    result = wn8Exp.get(tank_id)
     print result
