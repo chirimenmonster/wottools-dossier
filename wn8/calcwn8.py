@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*- 
 
+import wgapi
 import json
 
-with open('wn8exp.json', 'r') as fp:
-    wn8data = json.load(fp)
-    wn8DB = { str(v['IDNum']):v for v in wn8data['data'] }
+#with open('wn8exp.json', 'r') as fp:
+#    wn8data = json.load(fp)
+#    wn8DB = { str(v['IDNum']):v for v in wn8data['data'] }
 
-with open('vehiclestats.json', 'r') as fp:
-    stats = json.load(fp)
+#with open('vehiclestats.json', 'r') as fp:
+#    stats = json.load(fp)
 
 
 def calcWN8(avg, exp):
@@ -56,13 +57,20 @@ def getWN8(stats, expected):
     wn8 = calcWN8(avg, exp)
     return battles, wn8
 
+
 def main():
+    vehicleDB = wgapi.VehicleDatabase()
+    accountId = wgapi.PlayerList().get('Chirimen')['account_id']
+    stats = wgapi.PlayerVehicleStats(accountId).dump()
+    wn8DB = wgapi.WN8Exp().dump()
+
     data = { tankId: value['random'] for tankId, value in stats.items() }
     battles, wn8 = getWN8(data, wn8DB)
 
-    for tankId in sorted(stats.keys(), key=lambda x: stats[x]['vehicle']['tier']):
-        print '{:>6} {:2} {:>24} {:8} {:6}'.format(tankId, stats[tankId]['vehicle']['tier'], stats[tankId]['vehicle']['name'].encode('utf8'),
-                battles, int(round(data[tankId]['wn8'])))
+    for tankId in sorted(stats.keys(), key=lambda x: vehicleDB.get(x)['tier']):
+        vehicle = vehicleDB.get(tankId)
+        print '{:>6} {:2} {:>24} {:8} {:6}'.format(tankId, vehicle['tier'], vehicle['name'].encode('utf8'),
+                stats.get(tankId)['random']['battles'], int(round(data[tankId]['wn8'])))
     print '{:6} {:2} {:>24} {:8} {:6}'.format('', '', 'total', battles, int(round(wn8)))
 
 main()

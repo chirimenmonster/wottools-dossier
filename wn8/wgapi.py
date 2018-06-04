@@ -188,7 +188,6 @@ class WN8Exp(CachedDatabase):
 
     def readCache(self):
         super(WN8Exp, self).readCache()
-        self.cache
         self.__data = {}
         for row in self.cache['data']:
             self.__data[str(row['IDNum'])] = row
@@ -196,7 +195,10 @@ class WN8Exp(CachedDatabase):
     def get(self, tankId):
         return self.__data[str(tankId)]
 
+    def dump(self):
+        return self.__data
 
+    
 if __name__ == '__main__':
     vehicleDatabase = VehicleDatabase()
 
