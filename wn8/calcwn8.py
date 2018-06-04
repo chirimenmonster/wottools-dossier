@@ -1,14 +1,7 @@
 # -*- coding: utf-8 -*- 
 
+import argparse
 import wgapi
-import json
-
-#with open('wn8exp.json', 'r') as fp:
-#    wn8data = json.load(fp)
-#    wn8DB = { str(v['IDNum']):v for v in wn8data['data'] }
-
-#with open('vehiclestats.json', 'r') as fp:
-#    stats = json.load(fp)
 
 
 def calcWN8(avg, exp):
@@ -35,42 +28,65 @@ def calcWN8(avg, exp):
     return WN8
 
 
-def getWN8(stats, expected):
-    totalStats = { 'damage_dealt': 0, 'spotted': 0 , 'frags': 0, 'dropped_capture_points': 0, 'wins': 0, 'battles': 0 }
-    totalExpected = { 'expDamage': 0, 'expSpot': 0, 'expFrag': 0, 'expDef': 0 , 'expWins': 0 }
-    for tankId, value in stats.items():
+def getWN8(stats, wn8Exp):
+    statsKeys = ( 'damage_dealt', 'spotted', 'frags', 'dropped_capture_points' )
+    wn8ExpKeys = ( 'expDamage', 'expSpot', 'expFrag', 'expDef' )
+    totalStats = { k:0 for k in statsKeys + ( 'wins', 'battles' ) }
+    totalExpected = { k:0 for k in wn8ExpKeys + ( 'expWins', ) }
+    
+    for tankId in stats.keys():
+        value = stats[tankId]
+        expected = wn8Exp.get(tankId)
         battles = value['battles']
         winRate = float(value['wins']) / battles * 100
-        avg = [ float(value[k]) / battles for k in ('damage_dealt', 'spotted', 'frags', 'dropped_capture_points') ] + [ winRate ]
-        exp = [ expected[tankId][k] for k in ('expDamage', 'expSpot', 'expFrag', 'expDef', 'expWinRate') ]
-        stats[tankId]['wn8'] = calcWN8(avg, exp)
+        avg = [ float(value[k]) / battles for k in statsKeys ] + [ winRate ]
+        exp = [ expected[k] for k in wn8ExpKeys + ( 'expWinRate', ) ]
+
+        value['wn8'] = calcWN8(avg, exp)
+
         for key in totalStats.keys():
-            totalStats[key] += stats[tankId][key]
-        for key in ('expDamage', 'expSpot', 'expFrag', 'expDef'):
-            totalExpected[key] += expected[tankId][key] * battles
-        totalExpected['expWins'] += expected[tankId]['expWinRate'] * battles / 100
+            totalStats[key] += value[key]
+        for key in wn8ExpKeys:
+            totalExpected[key] += expected[key] * battles
+        totalExpected['expWins'] += expected['expWinRate'] * battles / 100
+
     battles = totalStats['battles']
     winRate = float(totalStats['wins']) / battles * 100
     expWinRate = float(totalExpected['expWins']) / battles * 100
-    avg = [ float(totalStats[k]) / battles for k in ('damage_dealt', 'spotted', 'frags', 'dropped_capture_points') ] + [ winRate ]
-    exp = [ totalExpected[k] / battles for k in ('expDamage', 'expSpot', 'expFrag', 'expDef') ] + [ expWinRate ]
+    avg = [ float(totalStats[k]) / battles for k in statsKeys ] + [ winRate ]
+    exp = [ totalExpected[k] / battles for k in wn8ExpKeys ] + [ expWinRate ]
     wn8 = calcWN8(avg, exp)
     return battles, wn8
 
 
-def main():
+def main(config):
     vehicleDB = wgapi.VehicleDatabase()
-    accountId = wgapi.PlayerList().get('Chirimen')['account_id']
-    stats = wgapi.PlayerVehicleStats(accountId).dump()
-    wn8DB = wgapi.WN8Exp().dump()
+    accountId = wgapi.PlayerList().get(config.nickname)['account_id']
+    playerVehicleStats = wgapi.PlayerVehicleStats(accountId)
+    wn8Exp = wgapi.WN8Exp()
 
-    data = { tankId: value['random'] for tankId, value in stats.items() }
-    battles, wn8 = getWN8(data, wn8DB)
+    stats = { k: v['random'] for k, v in playerVehicleStats.items() }
+    battles, wn8 = getWN8(stats, wn8Exp)
 
-    for tankId in sorted(stats.keys(), key=lambda x: vehicleDB.get(x)['tier']):
+    order = {}
+    order['tier'] = lambda x: - vehicleDB.getOrder(x, 'tier')
+    order['type'] = lambda x: vehicleDB.getOrder(x, 'type')
+    order['nation'] = lambda x: vehicleDB.getOrder(x, 'nation')
+
+    template = u'{:>8}  {:^5} {:8} {:^6} {:24} {:>8} {:>6}'
+    print template.format('id', 'tier', 'nation', 'type', 'name', 'battles', 'wn8')
+
+    for tankId in sorted(stats.keys(), key=lambda x: [ order[k](x) for k in 'tier', 'type', 'nation' ]):
         vehicle = vehicleDB.get(tankId)
-        print '{:>6} {:2} {:>24} {:8} {:6}'.format(tankId, vehicle['tier'], vehicle['name'].encode('utf8'),
-                stats.get(tankId)['random']['battles'], int(round(data[tankId]['wn8'])))
-    print '{:6} {:2} {:>24} {:8} {:6}'.format('', '', 'total', battles, int(round(wn8)))
+        type = vehicleDB.getType(tankId)
+        print template.format(tankId, vehicle['tier'], vehicle['nation'], type, vehicle['name'],
+                stats[tankId]['battles'], int(round(stats[tankId]['wn8'])))
+    print template.format('', '', '', '', 'total', battles, int(round(wn8)))
 
-main()
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-p', dest='nickname', required=True, help='specify <WoT Account Name>')
+    
+    config = parser.parse_args()
+    main(config)

@@ -10,6 +10,10 @@ APPLICATION_ID = 'demo'
 
 CACHE_DIR = 'cache'
 
+NATION_NAMES = ('ussr', 'germany', 'usa', 'china', 'france', 'uk', 'japan', 'czech', 'sweden', 'poland', 'italy')
+VEHICLE_CLASSES = ('lightTank', 'mediumTank', 'heavyTank', 'SPG', 'AT-SPG')
+VEHICLE_ORDER = ('lightTank', 'mediumTank', 'heavyTank', 'AT-SPG', 'SPG')
+VEHICLE_TYPES = ('LT', 'MT', 'HT', 'SPG', 'TD')
 
 class CachedDatabase(object):
     cache = None
@@ -62,7 +66,13 @@ class CachedDatabase(object):
     def dump(self):
         return self.cache
 
-        
+    def keys(self):
+        return self.cache.keys()
+
+    def items(self):
+        return self.cache.items()
+
+
 class VehicleDatabase(CachedDatabase):
     cacheLifetime = 60 * 60 * 24 * 7
     cacheFile = 'vehicledb.json'
@@ -71,9 +81,31 @@ class VehicleDatabase(CachedDatabase):
         'application_id': APPLICATION_ID,
         'fields': 'tank_id,tag,name,nation,tier,type'
     }
+    def __init__(self):
+        super(VehicleDatabase, self).__init__()
+        self.index = {}
+        self.index['nation'] = dict((n, i) for i, n in enumerate(NATION_NAMES))
+        self.index['type'] = dict((n, i) for i, n in enumerate(VEHICLE_CLASSES))
+        self.order = {}
+        self.order['type'] = dict((n, i) for i, n in enumerate(VEHICLE_ORDER))
 
     def get(self, tankId):
         return self.cache['data'][str(tankId)]
+
+    def getId(self, tankId, key):
+        value = self.get(tankId)[key]
+        if key in self.index:
+            return self.index[key][value]
+        return value
+
+    def getOrder(self, tankId, key):
+        value = self.get(tankId)[key]
+        if key in self.order:
+            return self.order[key][value]
+        return self.getId(tankId, key)
+
+    def getType(self, tankId):
+        return VEHICLE_TYPES[self.getId(tankId, 'type')]
 
 
 class PlayerVehicles(CachedDatabase):
@@ -163,22 +195,31 @@ class PlayerList(CachedDatabase):
 
     def fetch(self):
         result = self.fetchJSON(self.sourceURL, self.requestParam)
-        print result
         if not result['data']:
             raise 'not found'
         data = result['data'][0]
-        print data
         data['timestamp'] = int(time.mktime(datetime.now().timetuple()))
         self.cache[data['nickname']] = data
+        if data['nickname'] != self.__accountName:
+            self.cache[self.__accountName] = { 'alias': data['nickname'], 'timestamp': data['timestamp'] }
         self.saveCache()
 
-    def get(self, accountName):
+    def getFromCache(self, accountName):
         stat = self.cache.get(accountName, None)
         if stat and time.mktime(datetime.now().timetuple()) - stat['timestamp'] <= self.cacheLifetime:
+            if 'alias' in stat:
+                return self.getFromCache(stat['alias'])
+            return stat
+        return None
+    
+    def get(self, accountName):
+        stat = self.getFromCache(accountName)
+        if stat:
             return stat
         self.__accountName = accountName
         self.fetch()
-        return self.cache.get(accountName, None)
+        stat = self.getFromCache(accountName)
+        return stat
 
 
 class WN8Exp(CachedDatabase):
