@@ -23,8 +23,9 @@ class CachedDatabase(object):
     sourceURL = None
     requestParam = None
 
-    def __init__(self):
-        if not self.isExistsCache():
+    def __init__(self, config={}):
+        self.config = config
+        if config.get('force', False) or not self.isExistsCache():
             self.fetch()
         self.readCache()
 
@@ -81,8 +82,8 @@ class VehicleDatabase(CachedDatabase):
         'application_id': APPLICATION_ID,
         'fields': 'tank_id,tag,name,nation,tier,type'
     }
-    def __init__(self):
-        super(VehicleDatabase, self).__init__()
+    def __init__(self, config={}):
+        super(VehicleDatabase, self).__init__(config=config)
         self.index = {}
         self.index['nation'] = dict((n, i) for i, n in enumerate(NATION_NAMES))
         self.index['type'] = dict((n, i) for i, n in enumerate(VEHICLE_CLASSES))
@@ -92,25 +93,26 @@ class VehicleDatabase(CachedDatabase):
     def get(self, tankId):
         return self.cache['data'].get(str(tankId), None)
 
-    def getId(self, tankId, key):
-        vehicle = self.get(tankId)
-        if vehicle is None:
-            return 0
-        value = vehicle[key]
-        if key in self.index:
-            return self.index[key][value]
-        return value
+    def getId(self, tankId, category):
+        info = self.get(tankId)
+        if info is None:
+            return -1
+        if category in self.index:
+            return self.index[category][info[category]]
+        return info[category]
 
-    def getOrder(self, tankId, key):
-        vehicle = self.get(tankId)
-        if vehicle is None:
-            return 0
-        value = vehicle[key]
-        if key in self.order:
-            return self.order[key][value]
-        return self.getId(tankId, key)
+    def getOrder(self, tankId, category):
+        info = self.get(tankId)
+        if info is None:
+            return -1
+        if category in self.order:
+            return self.order[category][info[category]]
+        return self.getId(tankId, category)
 
     def getType(self, tankId):
+        vehicle = self.get(tankId)
+        if vehicle is None:
+            return ''
         return VEHICLE_TYPES[self.getId(tankId, 'type')]
 
 
@@ -118,9 +120,9 @@ class PlayerVehicles(CachedDatabase):
     cacheLifetime = 60 * 60 * 24 * 1
     sourceURL = URL_WGAPI + '/wot/account/tanks/'
 
-    def __init__(self, accountId):
+    def __init__(self, accountId, config={}):
         self.__accountId = str(accountId)
-        super(PlayerVehicles, self).__init__()
+        super(PlayerVehicles, self).__init__(config=config)
 
     @property
     def cacheFile(self):
@@ -142,10 +144,10 @@ class PlayerVehicleStats(CachedDatabase):
     cacheLifetime = 60 * 60 * 24 * 1
     sourceURL = URL_WGAPI + '/wot/tanks/stats/'
 
-    def __init__(self, accountId):
+    def __init__(self, accountId, config={}):
         self.__accountId = str(accountId)
-        self.__vehicleList = PlayerVehicles(self.__accountId).list()
-        super(PlayerVehicleStats, self).__init__()
+        self.__vehicleList = PlayerVehicles(self.__accountId, config=config).list()
+        super(PlayerVehicleStats, self).__init__(config=config)
 
     @property
     def cacheFile(self):
@@ -186,11 +188,6 @@ class PlayerList(CachedDatabase):
     cacheFile = 'playerlist.json'
     sourceURL = URL_WGAPI + '/wot/account/list/'
 
-    def __init__(self):
-        self.cache = {}
-        if os.path.exists(self.cachePath):
-            self.readCache()
-
     @property
     def requestParam(self):
         return {
@@ -200,6 +197,9 @@ class PlayerList(CachedDatabase):
         }
 
     def fetch(self):
+        pass
+
+    def __fetchPlayer(self):
         result = self.fetchJSON(self.sourceURL, self.requestParam)
         if not result['data']:
             raise 'not found'
@@ -210,21 +210,22 @@ class PlayerList(CachedDatabase):
             self.cache[self.__accountName] = { 'alias': data['nickname'], 'timestamp': data['timestamp'] }
         self.saveCache()
 
-    def getFromCache(self, accountName):
+    def __getFromCache(self, accountName):
         stat = self.cache.get(accountName, None)
         if stat and time.mktime(datetime.now().timetuple()) - stat['timestamp'] <= self.cacheLifetime:
             if 'alias' in stat:
-                return self.getFromCache(stat['alias'])
+                return self.__getFromCache(stat['alias'])
             return stat
         return None
     
     def get(self, accountName):
-        stat = self.getFromCache(accountName)
-        if stat:
-            return stat
+        if not self.config.get('force', False):
+            stat = self.__getFromCache(accountName)
+            if stat:
+                return stat
         self.__accountName = accountName
-        self.fetch()
-        stat = self.getFromCache(accountName)
+        self.__fetchPlayer()
+        stat = self.__getFromCache(accountName)
         return stat
 
 

@@ -38,18 +38,18 @@ class WN8Data(CachedDatabase):
     statsKeys = ( 'damage_dealt', 'spotted', 'frags', 'dropped_capture_points' )
     wn8ExpKeys = ( 'expDamage', 'expSpot', 'expFrag', 'expDef' )
 
-    def __init__(self, accountId):
+    def __init__(self, accountId, config={}):
         self.__accountId = str(accountId)
-        super(WN8Data, self).__init__()
+        super(WN8Data, self).__init__(config=config)
 
     @property
     def cacheFile(self):
         return 'wn8data_{}.json'.format(self.__accountId)
 
     def fetch(self):
-        self.vehicleDB = wgapi.VehicleDatabase()
-        self.vehicleStats = wgapi.PlayerVehicleStats(self.__accountId)
-        self.wn8Exp = wgapi.WN8Exp()
+        self.vehicleDB = wgapi.VehicleDatabase(config=self.config)
+        self.vehicleStats = wgapi.PlayerVehicleStats(self.__accountId, config=self.config)
+        self.wn8Exp = wgapi.WN8Exp(config=self.config)
         self.cache = {}
         stats = { k: v['random'] for k, v in self.vehicleStats.items() }
         self.cache = {
@@ -105,8 +105,10 @@ class WN8Data(CachedDatabase):
 
 
 def main(config):
-    accountId = wgapi.PlayerList().get(config.nickname)['account_id']
-    wn8Data = WN8Data(accountId)
+    options = { 'force': config.force }
+
+    accountId = wgapi.PlayerList(config=options).get(config.nickname)['account_id']
+    wn8Data = WN8Data(accountId, config=options)
     
     vehicleDB = wgapi.VehicleDatabase()
     order = {}
@@ -136,6 +138,7 @@ def main(config):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', dest='nickname', required=True, help='specify <WoT Account Name>')
+    parser.add_argument('-f', dest='force', action='store_true', help='force to fetch, regaredless of the cache')
     
     config = parser.parse_args()
     main(config)
