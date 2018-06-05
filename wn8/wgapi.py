@@ -50,8 +50,9 @@ class CachedDatabase(object):
     def readCache(self):
         if self.cache:
             return
-        with open(self.cachePath, 'r') as fp:
-            self.cache = json.load(fp)
+        if os.path.exists(self.cachePath):
+            with open(self.cachePath, 'r') as fp:
+                self.cache = json.load(fp)
 
     def fetchJSON(self, url, param):
         if param:
@@ -197,7 +198,8 @@ class PlayerList(CachedDatabase):
         }
 
     def fetch(self):
-        pass
+        if self.cache is None:
+            self.cache = {}
 
     def __fetchPlayer(self):
         result = self.fetchJSON(self.sourceURL, self.requestParam)
