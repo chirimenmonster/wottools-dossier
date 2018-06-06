@@ -20,14 +20,14 @@ class MyHandler(SimpleHTTPRequestHandler):
         if path != '/playerstats.json':
            self.send_error(404)
            return        
-        if 'nickname' not in query or len(queryDict['nickname']) != 1:
-           self.send_error(404)
+        if 'nickname' not in queryDict or len(queryDict['nickname']) != 1:
+           self.send_error(404, 'parameter "nickname" is not specified')
            return
         try:
             nickname = queryDict['nickname'][0]
             wn8data, lastmodified = getWN8(nickname)
         except:
-           self.send_error(404)
+           self.send_error(404, 'player\'s stats is not found')
            return
            
         self.__result = json.dumps(wn8data, sort_keys=True)
