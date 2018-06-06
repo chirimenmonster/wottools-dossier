@@ -47,5 +47,6 @@ class MyHandler(SimpleHTTPRequestHandler):
 
 
 locale.setlocale(locale.LC_ALL, 'C')
+TCPServer.allow_use_reuse_address = True
 httpd = TCPServer(('', PORT), MyHandler)
 httpd.serve_forever()
