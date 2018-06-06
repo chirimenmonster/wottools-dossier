@@ -104,13 +104,15 @@ class WN8Data(CachedDatabase):
         return self.cache['total']
 
 
-def main(config):
-    options = { 'force': config.force }
+def getWN8(nickname, config={}):
+    accountId = wgapi.PlayerList(config=config).get(nickname)['account_id']
+    wn8Data = WN8Data(accountId, config=config)
+    return wn8Data.dump()
 
-    accountId = wgapi.PlayerList(config=options).get(config.nickname)['account_id']
-    wn8Data = WN8Data(accountId, config=options)
-    
+
+def output(wn8Json):
     vehicleDB = wgapi.VehicleDatabase()
+
     order = {}
     order['tier'] = lambda x: - vehicleDB.getOrder(x, 'tier')
     order['type'] = lambda x: vehicleDB.getOrder(x, 'type')
@@ -118,8 +120,10 @@ def main(config):
 
     template = u'{:>8}  {:^5} {:8} {:^6} {:24} {:>8} {:>6}'
     print template.format('id', 'tier', 'nation', 'type', 'name', 'battles', 'wn8')
-    for tankId in sorted(wn8Data.getVehicles(), key=lambda x: [ order[k](x) for k in 'tier', 'type', 'nation' ]):
-        stats = wn8Data.get(tankId)
+    
+    statsVehicles = wn8Json['vehicles']
+    for tankId in sorted(statsVehicles.keys(), key=lambda x: [ order[k](x) for k in 'tier', 'type', 'nation' ]):
+        stats = statsVehicles[tankId]
         vehicle = vehicleDB.get(tankId)
         tier = vehicle['tier'] if vehicle else ''
         type = vehicleDB.getType(tankId)
@@ -131,8 +135,9 @@ def main(config):
         battles = stats['battles']
         wn8 = int(round(stats['wn8']))
         print template.format(tankId, tier, nation, type, name, battles, wn8)
-    total = wn8Data.getTotal()
-    print template.format('', '', '', '', 'total', total['battles'], int(round(total['wn8'])))
+
+    statsTotal = wn8Json['total']
+    print template.format('', '', '', '', 'total', statsTotal['battles'], int(round(statsTotal['wn8'])))
 
 
 if __name__ == '__main__':
@@ -141,4 +146,8 @@ if __name__ == '__main__':
     parser.add_argument('-f', dest='force', action='store_true', help='force to fetch, regaredless of the cache')
     
     config = parser.parse_args()
-    main(config)
+
+    options = { 'force': config.force }
+    result = getWN8(config.nickname, config=options)
+
+    output(result)
