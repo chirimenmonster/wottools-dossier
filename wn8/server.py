@@ -36,7 +36,7 @@ class MyHandler(SimpleHTTPRequestHandler):
         self.send_header('Content-type', 'application/json')
         self.send_header('Content-Length', len(self.__result))
         self.send_header('Content-Disposition', 'filename="playerstats.json"')
-        self.send_header('Last-Modified', datetime.fromtimestamp(lastmodified).strftime('%a, %d %b %Y %X GMT'))
+        self.send_header('Last-Modified', datetime.utcfromtimestamp(lastmodified).strftime('%a, %d %b %Y %X GMT'))
         self.end_headers()
 
 
