@@ -107,7 +107,7 @@ class WN8Data(CachedDatabase):
 def getWN8(nickname, config={}):
     accountId = wgapi.PlayerList(config=config).get(nickname)['account_id']
     wn8Data = WN8Data(accountId, config=config)
-    return wn8Data.dump()
+    return wn8Data.dump(), wn8Data.lastmodified
 
 
 def output(wn8Json):

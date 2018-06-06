@@ -2,8 +2,7 @@ import os
 import urllib
 import urllib2
 import json
-from datetime import datetime
-import time
+from time import time
 
 URL_WGAPI = 'https://api.worldoftanks.asia'
 APPLICATION_ID = 'demo'
@@ -37,7 +36,7 @@ class CachedDatabase(object):
         if not os.path.exists(self.cachePath):
             return False
         stat = os.stat(self.cachePath)
-        if time.mktime(datetime.now().timetuple()) - stat.st_mtime > self.cacheLifetime:
+        if time() - stat.st_mtime > self.cacheLifetime:
             return False
         return True
 
@@ -46,6 +45,7 @@ class CachedDatabase(object):
             os.mkdir(self.cacheDir)
         with open(self.cachePath, 'w') as fp:
             json.dump(self.cache, fp)
+        self.lastmodified = os.stat(self.cachePath).st_mtime
 
     def readCache(self):
         if self.cache:
@@ -53,6 +53,7 @@ class CachedDatabase(object):
         if os.path.exists(self.cachePath):
             with open(self.cachePath, 'r') as fp:
                 self.cache = json.load(fp)
+            self.lastmodified = os.stat(self.cachePath).st_mtime
 
     def fetchJSON(self, url, param):
         if param:
@@ -206,7 +207,7 @@ class PlayerList(CachedDatabase):
         if not result['data']:
             raise 'not found'
         data = result['data'][0]
-        data['timestamp'] = int(time.mktime(datetime.now().timetuple()))
+        data['timestamp'] = int(time())
         self.cache[data['nickname']] = data
         if data['nickname'] != self.__accountName:
             self.cache[self.__accountName] = { 'alias': data['nickname'], 'timestamp': data['timestamp'] }
@@ -214,7 +215,7 @@ class PlayerList(CachedDatabase):
 
     def __getFromCache(self, accountName):
         stat = self.cache.get(accountName, None)
-        if stat and time.mktime(datetime.now().timetuple()) - stat['timestamp'] <= self.cacheLifetime:
+        if stat and time() - stat['timestamp'] <= self.cacheLifetime:
             if 'alias' in stat:
                 return self.__getFromCache(stat['alias'])
             return stat

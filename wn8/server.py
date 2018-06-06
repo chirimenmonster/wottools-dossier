@@ -4,6 +4,8 @@ from SimpleHTTPServer import SimpleHTTPRequestHandler
 from SocketServer import TCPServer
 from urlparse import urlparse, parse_qs
 import json
+from datetime import datetime
+import locale
 
 from calcwn8 import getWN8
 
@@ -11,24 +13,39 @@ PORT = 8080
 
 class MyHandler(SimpleHTTPRequestHandler):
 
-    def do_GET(self):
-        query = parse_qs(urlparse(self.path).query)
-        if 'nickname' not in query or len(query['nickname']) != 1:
+    def do_HEAD(self):
+        self.__result = None
+        _, _, path, _, query, _ = urlparse(self.path)
+        queryDict = parse_qs(query)
+        if path != '/playerstats.json':
+           self.send_error(404)
+           return        
+        if 'nickname' not in query or len(queryDict['nickname']) != 1:
            self.send_error(404)
            return
         try:
-            nickname = query['nickname'][0]
-            wn8data = getWN8(nickname)
+            nickname = queryDict['nickname'][0]
+            wn8data, lastmodified = getWN8(nickname)
         except:
            self.send_error(404)
            return
            
+        self.__result = json.dumps(wn8data, sort_keys=True)
+
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
+        self.send_header('Content-Length', len(self.__result))
+        self.send_header('Content-Disposition', 'filename="playerstats.json"')
+        self.send_header('Last-Modified', datetime.fromtimestamp(lastmodified).strftime('%a, %d %b %Y %X GMT'))
         self.end_headers()
-        
-        self.wfile.write(json.dumps(wn8data, sort_keys=True))
 
-        
+
+    def do_GET(self):
+        self.do_HEAD()
+        if self.__result is not None:
+            self.wfile.write(self.__result)
+
+
+locale.setlocale(locale.LC_ALL, 'C')
 httpd = TCPServer(('', PORT), MyHandler)
 httpd.serve_forever()
