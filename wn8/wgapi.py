@@ -79,6 +79,7 @@ class CachedDatabase(object):
 class VehicleDatabase(CachedDatabase):
     cacheLifetime = 60 * 60 * 24 * 7
     cacheFile = 'vehicledb.json'
+    cachePathAlt = '../vehiclelist.json'
     sourceURL = URL_WGAPI + '/wot/encyclopedia/vehicles/'
     requestParam = {
         'application_id': APPLICATION_ID,
@@ -92,8 +93,17 @@ class VehicleDatabase(CachedDatabase):
         self.order = {}
         self.order['type'] = dict((n, i) for i, n in enumerate(VEHICLE_ORDER))
 
+    def readCache(self):
+        super(VehicleDatabase, self).readCache()
+        if os.path.exists(self.cachePathAlt):
+            with open(self.cachePathAlt, 'r') as fp:
+                self.cacheAlt = json.load(fp)
+
     def get(self, tankId):
-        return self.cache['data'].get(str(tankId), None)
+        result = self.cache['data'].get(str(tankId), None)
+        if result is None:
+            result = self.cacheAlt['data'].get(str(tankId), None)
+        return result
 
     def getId(self, tankId, category):
         info = self.get(tankId)

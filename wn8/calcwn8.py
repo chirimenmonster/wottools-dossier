@@ -148,6 +148,6 @@ if __name__ == '__main__':
     config = parser.parse_args()
 
     options = { 'force': config.force }
-    result = getWN8(config.nickname, config=options)
+    result, _ = getWN8(config.nickname, config=options)
 
     output(result)
