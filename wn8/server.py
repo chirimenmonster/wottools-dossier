@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import os
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 from SocketServer import TCPServer
 from urlparse import urlparse, parse_qs
@@ -32,7 +33,11 @@ class MyHandler(SimpleHTTPRequestHandler, object):
         elif path == '/vehicledb.json':
             result, lastmodified = self.__getVehicleDB(query)
             self.__sendJSON(result, 'vehicledb.json', lastmodified, requireBody)
-            return True        
+            return True
+        _, ext = os.path.splitext(path)
+        if path != '/' and ext not in ( '.html', '.css', '.jpg', '.png' ):
+           self.send_error(404)
+           return True
         return False
 
     def __sendJSON(self, data, filename, lastmodified, requireBody):
