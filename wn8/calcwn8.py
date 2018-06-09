@@ -91,7 +91,9 @@ class WN8Data(CachedDatabase):
         avg = [ float(totalStats[k]) / battles for k in self.statsKeys ] + [ winRate ]
         exp = [ totalWn8Exps[k] / battles for k in self.wn8ExpKeys ] + [ expWinRate ]
         wn8 = calcWN8(avg, exp)
-        result = self.cache['total'] = { 'battles': battles, 'wn8': wn8 }
+        totalStats['battles'] = battles
+        totalStats['wn8'] = wn8
+        result = self.cache['total'] = totalStats
         return result
 
     def getVehicles(self):
@@ -107,7 +109,11 @@ class WN8Data(CachedDatabase):
 def getWN8(nickname, config={}):
     accountId = wgapi.PlayerList(config=config).get(nickname)['account_id']
     wn8Data = WN8Data(accountId, config=config)
-    return wn8Data.dump(), wn8Data.lastmodified
+    result = wn8Data.dump()
+    stats = wgapi.PlayerVehicleStats(accountId)
+    for k, v in stats.items():
+        result['vehicles'][k].update(v['random'])
+    return result, wn8Data.lastmodified
 
 
 def output(wn8Json):

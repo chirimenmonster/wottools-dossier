@@ -98,6 +98,7 @@ class VehicleDatabase(CachedDatabase):
         if os.path.exists(self.cachePathAlt):
             with open(self.cachePathAlt, 'r') as fp:
                 self.cacheAlt = json.load(fp)
+            self.lastmodifiedAlt = os.stat(self.cachePathAlt).st_mtime
 
     def get(self, tankId):
         result = self.cache['data'].get(str(tankId), None)
@@ -126,6 +127,9 @@ class VehicleDatabase(CachedDatabase):
         if vehicle is None:
             return ''
         return VEHICLE_TYPES[self.getId(tankId, 'type')]
+
+    def dumpAlt(self):
+        return self.cacheAlt
 
 
 class PlayerVehicles(CachedDatabase):
