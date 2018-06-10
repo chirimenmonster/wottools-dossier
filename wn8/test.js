@@ -102,7 +102,7 @@ function addTable() {
             p.appendChild(vehicleStats);
         }
         let options = {
-            valueNames: [ 'name', 'tier', 'nation', 'type', 'battles', 'winrate', 'wn8' ]
+            valueNames: [ 'name', 'tier', 'nation', 'type', 'battles', 'winRate', 'wn8' ]
         };
         userList = new List('users', options);
     }

@@ -4,6 +4,10 @@ td.tankId, td.battles, td.winRate, td.wn8 {
     text-align: right;
 }
 
+td.nation, td.type {
+    text-align: center;
+}
+
 .sort.desc:after {
     content:"▼";
 }
