@@ -2,19 +2,24 @@
 <html>
     <head>
         <title>WoT player WN8</title>
+        <link rel="stylesheet" href="test.css">
+        <script src="test.js"></script>
     </head>
     <body>
         <h1>WoT player WN8</h1>
         <h2>get player stats with WN8</h2>
-        <form action="/playerstats.json" method="get">
+        <form action="/playerstats.json" method="get" name="test">
             player account:
             <input type="text" name="nickname"></input>
-            <input type="submit"></input>
+            <input type="submit" value="get JSON"></input>
+            <input type="button" value="view" onClick="addTable()"></input>
         </form>
         <h2>get vehicle database</h2>
         <form action="/vehicledb.json" method="get">
             Vehicle Database
-            <input type="submit"></input>
+            <input type="submit" value="get JSON"></input>
         </form>
+        <h2>Rate</h2>
+        <div id="test"></div>
     </body>
 </html>

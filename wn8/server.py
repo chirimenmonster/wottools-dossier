@@ -27,15 +27,21 @@ class MyHandler(SimpleHTTPRequestHandler, object):
         self.__result = None
         _, _, path, _, query, _ = urlparse(self.path)
         if path == '/playerstats.json':
-            result, lastmodified = self.__getPlayerstats(query)
+            try:
+                result, lastmodified = self.__getPlayerstats(query)
+            except:
+                return True
             self.__sendJSON(result, 'playerstats.json', lastmodified, requireBody)
             return True
         elif path == '/vehicledb.json':
-            result, lastmodified = self.__getVehicleDB(query)
+            try:
+                result, lastmodified = self.__getVehicleDB(query)
+            except:
+                return True
             self.__sendJSON(result, 'vehicledb.json', lastmodified, requireBody)
             return True
         _, ext = os.path.splitext(path)
-        if path != '/' and ext not in ( '.html', '.css', '.jpg', '.png' ):
+        if path != '/' and ext not in ( '.html', '.css', '.js', '.jpg', '.png' ):
            self.send_error(404)
            return True
         return False
@@ -55,14 +61,14 @@ class MyHandler(SimpleHTTPRequestHandler, object):
         queryDict = parse_qs(query)
         if 'nickname' not in queryDict or len(queryDict['nickname']) != 1:
            self.send_error(404, 'parameter "nickname" is not specified')
-           return None
+           raise
         nickname = queryDict['nickname'][0]
         wn8data, lastmodified = getWN8(nickname)
         try:
             pass
         except:
            self.send_error(404, 'player\'s stats is not found')
-           return None
+           raise Exception
         return wn8data, lastmodified   
 
     def __getVehicleDB(self, query):

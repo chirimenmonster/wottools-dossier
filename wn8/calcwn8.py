@@ -53,7 +53,7 @@ class WN8Data(CachedDatabase):
         self.cache = {}
         stats = { k: v['random'] for k, v in self.vehicleStats.items() }
         self.cache = {
-            'palyer': { 'account_id': self.__accountId },
+            'player': { 'account_id': self.__accountId },
             'total': None,
             'vehicles': {}
         }
