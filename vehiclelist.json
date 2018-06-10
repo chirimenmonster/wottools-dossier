@@ -22,7 +22,7 @@
             "tag":"A21_T14",
             "tank_id":33,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "49":{
             "name":"Type 59",
@@ -46,7 +46,7 @@
             "tag":"Cz06_Kolohousenka",
             "tank_id":113,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "129":{
             "name":"Strv fm/21",
@@ -54,7 +54,7 @@
             "tag":"S05_Strv_M21_29",
             "tank_id":129,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "145":{
             "name":"Pudel",
@@ -70,7 +70,7 @@
             "tag":"It04_Fiat_3000",
             "tank_id":161,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "257":{
             "name":"SU-85",
@@ -78,7 +78,7 @@
             "tag":"R02_SU-85",
             "tank_id":257,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "273":{
             "name":"Hummel",
@@ -86,7 +86,7 @@
             "tag":"G02_Hummel",
             "tank_id":273,
             "tier":6,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "289":{
             "name":"M3 Stuart",
@@ -94,7 +94,7 @@
             "tag":"A03_M3_Stuart",
             "tank_id":289,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "305":{
             "name":"Type 62",
@@ -102,7 +102,7 @@
             "tag":"Ch02_Type62",
             "tank_id":305,
             "tier":7,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "321":{
             "name":"D2",
@@ -134,7 +134,7 @@
             "tag":"Cz03_LT_vz35",
             "tank_id":369,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "385":{
             "name":"Strv m/38",
@@ -142,7 +142,7 @@
             "tag":"S03_Strv_M38",
             "tank_id":385,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "417":{
             "name":"L6/40",
@@ -150,7 +150,7 @@
             "tag":"It05_Carro_L6_40",
             "tank_id":417,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "513":{
             "name":"IS",
@@ -158,7 +158,7 @@
             "tag":"R01_IS",
             "tank_id":513,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "529":{
             "name":"Tiger I",
@@ -166,7 +166,7 @@
             "tag":"G04_PzVI_Tiger_I",
             "tank_id":529,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "545":{
             "name":"T1 Cunningham",
@@ -174,7 +174,7 @@
             "tag":"A01_T1_Cunningham",
             "tank_id":545,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "561":{
             "name":"Type 59 G",
@@ -190,7 +190,7 @@
             "tag":"F01_RenaultFT",
             "tank_id":577,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "593":{
             "name":"M2",
@@ -198,7 +198,7 @@
             "tag":"GB14_M2",
             "tank_id":593,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "609":{
             "name":"Renault Otsu",
@@ -206,7 +206,7 @@
             "tag":"J01_NC27",
             "tank_id":609,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "625":{
             "name":"LT vz. 38",
@@ -214,7 +214,7 @@
             "tag":"Cz10_LT_vz38",
             "tank_id":625,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "641":{
             "name":"Strv m/40L",
@@ -222,7 +222,7 @@
             "tag":"S12_Strv_M40",
             "tank_id":641,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "673":{
             "name":"M14/41",
@@ -238,7 +238,7 @@
             "tag":"R03_BT-7",
             "tank_id":769,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "785":{
             "name":"Pz.Kpfw. 35 (t)",
@@ -246,7 +246,7 @@
             "tag":"G07_Pz35t",
             "tank_id":785,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "801":{
             "name":"M6",
@@ -254,7 +254,7 @@
             "tag":"A10_M6",
             "tank_id":801,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "817":{
             "name":"WZ-111",
@@ -262,7 +262,7 @@
             "tag":"Ch03_WZ-111",
             "tank_id":817,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "833":{
             "name":"Renault FT 75 BS",
@@ -270,7 +270,7 @@
             "tag":"F20_RenaultBS",
             "tank_id":833,
             "tier":2,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "849":{
             "name":"Matilda",
@@ -286,7 +286,7 @@
             "tag":"J03_Ha_Go",
             "tank_id":865,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "881":{
             "name":"ST vz. 39",
@@ -318,7 +318,7 @@
             "tag":"R08_BT-2",
             "tank_id":1025,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "1041":{
             "name":"StuG III Ausf. G",
@@ -326,7 +326,7 @@
             "tag":"G05_StuG_40_AusfG",
             "tank_id":1041,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "1057":{
             "name":"M4 Sherman",
@@ -350,7 +350,7 @@
             "tag":"F04_B1",
             "tank_id":1089,
             "tier":4,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "1105":{
             "name":"Cromwell",
@@ -398,7 +398,7 @@
             "tag":"R05_KV",
             "tank_id":1281,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "1297":{
             "name":"Panther",
@@ -422,7 +422,7 @@
             "tag":"Ch06_Renault_NC31",
             "tank_id":1329,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "1345":{
             "name":"Hotchkiss H35",
@@ -430,7 +430,7 @@
             "tag":"F12_Hotchkiss_H35",
             "tank_id":1345,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "1361":{
             "name":"Stuart I-IV",
@@ -438,7 +438,7 @@
             "tag":"GB15_Stuart_I",
             "tank_id":1361,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "1377":{
             "name":"Type 3 Chi-Nu",
@@ -486,7 +486,7 @@
             "tag":"G17_JagdPzIV",
             "tank_id":1553,
             "tier":6,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "1569":{
             "name":"T20",
@@ -510,7 +510,7 @@
             "tag":"F02_D1",
             "tank_id":1601,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "1617":{
             "name":"Grant",
@@ -558,7 +558,7 @@
             "tag":"R15_S-51",
             "tank_id":1793,
             "tier":7,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "1809":{
             "name":"Jagdpanzer 38(t) Hetzer",
@@ -566,7 +566,7 @@
             "tag":"G09_Hetzer",
             "tank_id":1809,
             "tier":4,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "1825":{
             "name":"M2 Light Tank",
@@ -574,7 +574,7 @@
             "tag":"A02_M2_lt",
             "tank_id":1825,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "1841":{
             "name":"WZ-120",
@@ -606,7 +606,7 @@
             "tag":"S18_EMIL_1951_E1",
             "tank_id":1921,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "1953":{
             "name":"P.43 ter",
@@ -622,7 +622,7 @@
             "tag":"R12_A-20",
             "tank_id":2049,
             "tier":4,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "2065":{
             "name":"Pz.Kpfw. II",
@@ -630,7 +630,7 @@
             "tag":"G06_PzII",
             "tank_id":2065,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "2081":{
             "name":"T1 HMC",
@@ -638,7 +638,7 @@
             "tag":"A107_T1_HMC",
             "tank_id":2081,
             "tier":2,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "2097":{
             "name":"WZ-111 model 1-4",
@@ -646,7 +646,7 @@
             "tag":"Ch12_111_1_2_3",
             "tank_id":2097,
             "tier":9,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "2113":{
             "name":"105 leFH18B2",
@@ -654,7 +654,7 @@
             "tag":"F28_105_leFH18B2",
             "tank_id":2113,
             "tier":5,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "2129":{
             "name":"Crusader",
@@ -686,7 +686,7 @@
             "tag":"S17_EMIL_1952_E2",
             "tank_id":2177,
             "tier":9,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "2209":{
             "name":"P.44 Pantera",
@@ -702,7 +702,7 @@
             "tag":"R18_SU-152",
             "tank_id":2305,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "2321":{
             "name":"VK 36.01 (H)",
@@ -710,7 +710,7 @@
             "tag":"G15_VK3601H",
             "tank_id":2321,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "2337":{
             "name":"T23",
@@ -726,7 +726,7 @@
             "tag":"Ch07_Vickers_MkE_Type_BT26",
             "tank_id":2353,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "2369":{
             "name":"FCM 36 Pak 40",
@@ -734,7 +734,7 @@
             "tag":"F27_FCM_36Pak40",
             "tank_id":2369,
             "tier":3,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "2385":{
             "name":"Vickers Medium Mk. III",
@@ -750,7 +750,7 @@
             "tag":"J04_Ke_Ni",
             "tank_id":2401,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "2417":{
             "name":"TVP T 50/51",
@@ -766,7 +766,7 @@
             "tag":"S16_Kranvagn",
             "tank_id":2433,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "2465":{
             "name":"Prototipo Standard B",
@@ -790,7 +790,7 @@
             "tag":"G13_VK3001H",
             "tank_id":2577,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "2593":{
             "name":"T30",
@@ -798,7 +798,7 @@
             "tag":"A14_T30",
             "tank_id":2593,
             "tier":9,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "2625":{
             "name":"ARL 44",
@@ -806,7 +806,7 @@
             "tag":"F06_ARL_44",
             "tank_id":2625,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "2657":{
             "name":"STA-1",
@@ -822,7 +822,7 @@
             "tag":"S09_L_120_TD",
             "tank_id":2689,
             "tier":2,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "2721":{
             "name":"Progetto M40 mod. 65",
@@ -838,7 +838,7 @@
             "tag":"R106_KV85",
             "tank_id":2817,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "2833":{
             "name":"Sturmpanzer I Bison",
@@ -846,7 +846,7 @@
             "tag":"G11_Bison_I",
             "tank_id":2833,
             "tier":3,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "2849":{
             "name":"T34",
@@ -854,7 +854,7 @@
             "tag":"A13_T34_hvy",
             "tank_id":2849,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "2865":{
             "name":"110",
@@ -862,7 +862,7 @@
             "tag":"Ch11_110",
             "tank_id":2865,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "2881":{
             "name":"AMX 40",
@@ -870,7 +870,7 @@
             "tag":"F14_AMX40",
             "tank_id":2881,
             "tier":4,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "2897":{
             "name":"Churchill I",
@@ -878,7 +878,7 @@
             "tag":"GB08_Churchill_I",
             "tank_id":2897,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "2913":{
             "name":"Type 5 Ke-Ho",
@@ -886,7 +886,7 @@
             "tag":"J06_Ke_Ho",
             "tank_id":2913,
             "tier":4,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "2945":{
             "name":"Ikv 72",
@@ -894,7 +894,7 @@
             "tag":"S20_Ikv_72",
             "tank_id":2945,
             "tier":3,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "3073":{
             "name":"T-46",
@@ -902,7 +902,7 @@
             "tag":"R22_T-46",
             "tank_id":3073,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "3089":{
             "name":"Leichttraktor",
@@ -910,7 +910,7 @@
             "tag":"G12_Ltraktor",
             "tank_id":3089,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "3105":{
             "name":"M3 Lee",
@@ -926,7 +926,7 @@
             "tag":"Ch09_M5",
             "tank_id":3121,
             "tier":4,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "3137":{
             "name":"AMX 50 100",
@@ -934,7 +934,7 @@
             "tag":"F08_AMX_50_100",
             "tank_id":3137,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "3153":{
             "name":"Black Prince",
@@ -942,7 +942,7 @@
             "tag":"GB10_Black_Prince",
             "tank_id":3153,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "3169":{
             "name":"Type 97 Te-Ke",
@@ -950,7 +950,7 @@
             "tag":"J02_Te_Ke",
             "tank_id":3169,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "3201":{
             "name":"Sav m/43",
@@ -958,7 +958,7 @@
             "tag":"S19_Sav_M43",
             "tank_id":3201,
             "tier":4,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "3329":{
             "name":"MS-1",
@@ -966,7 +966,7 @@
             "tag":"R11_MS-1",
             "tank_id":3329,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "3345":{
             "name":"Pz.Kpfw. 38 (t)",
@@ -974,7 +974,7 @@
             "tag":"G08_Pz38t",
             "tank_id":3345,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "3361":{
             "name":"T1 Heavy Tank",
@@ -982,7 +982,7 @@
             "tag":"A09_T1_hvy",
             "tank_id":3361,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "3377":{
             "name":"WZ-131",
@@ -990,7 +990,7 @@
             "tag":"Ch16_WZ_131",
             "tank_id":3377,
             "tier":7,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "3393":{
             "name":"Lorraine 39L AM",
@@ -998,7 +998,7 @@
             "tag":"F21_Lorraine39_L_AM",
             "tank_id":3393,
             "tier":3,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "3409":{
             "name":"Sexton II",
@@ -1006,7 +1006,7 @@
             "tag":"GB27_Sexton",
             "tank_id":3409,
             "tier":3,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "3425":{
             "name":"Type 61",
@@ -1022,7 +1022,7 @@
             "tag":"S14_Ikv_103",
             "tank_id":3457,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "3585":{
             "name":"SU-100",
@@ -1030,7 +1030,7 @@
             "tag":"R17_SU-100",
             "tank_id":3585,
             "tier":6,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "3601":{
             "name":"Panzerjäger I",
@@ -1038,7 +1038,7 @@
             "tag":"G21_PanzerJager_I",
             "tank_id":3601,
             "tier":2,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "3617":{
             "name":"M7 Priest",
@@ -1046,7 +1046,7 @@
             "tag":"A16_M7_Priest",
             "tank_id":3617,
             "tier":3,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "3633":{
             "name":"IS-2",
@@ -1054,7 +1054,7 @@
             "tag":"Ch10_IS2",
             "tank_id":3633,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "3649":{
             "name":"Bat.-Châtillon 25 t",
@@ -1086,7 +1086,7 @@
             "tag":"S08_Ikv_65_Alt_2",
             "tank_id":3713,
             "tier":6,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "3841":{
             "name":"SU-18",
@@ -1094,7 +1094,7 @@
             "tag":"R16_SU-18",
             "tank_id":3841,
             "tier":2,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "3857":{
             "name":"Jagdpanther",
@@ -1102,7 +1102,7 @@
             "tag":"G18_JagdPanther",
             "tank_id":3857,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "3873":{
             "name":"T29",
@@ -1110,7 +1110,7 @@
             "tag":"A11_T29",
             "tank_id":3873,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "3889":{
             "name":"WZ-132",
@@ -1118,7 +1118,7 @@
             "tag":"Ch17_WZ131_1_WZ132",
             "tank_id":3889,
             "tier":8,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "3905":{
             "name":"AMX 50 120",
@@ -1126,7 +1126,7 @@
             "tag":"F09_AMX_50_120",
             "tank_id":3905,
             "tier":9,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "3921":{
             "name":"Caernarvon",
@@ -1134,7 +1134,7 @@
             "tag":"GB11_Caernarvon",
             "tank_id":3921,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "3937":{
             "name":"Type 5 Heavy",
@@ -1142,7 +1142,7 @@
             "tag":"J20_Type_2605",
             "tank_id":3937,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "3969":{
             "name":"Ikv 90 Typ B",
@@ -1150,7 +1150,7 @@
             "tag":"S06_Ikv_90_Typ_B_Bofors",
             "tank_id":3969,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "4097":{
             "name":"SU-14-2",
@@ -1158,7 +1158,7 @@
             "tag":"R27_SU-14",
             "tank_id":4097,
             "tier":8,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "4113":{
             "name":"VK 30.02 (D)",
@@ -1174,7 +1174,7 @@
             "tag":"A18_M41",
             "tank_id":4129,
             "tier":5,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "4145":{
             "name":"121",
@@ -1190,7 +1190,7 @@
             "tag":"F22_AMX_105AM",
             "tank_id":4161,
             "tier":5,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "4193":{
             "name":"Type 4 Heavy",
@@ -1198,7 +1198,7 @@
             "tag":"J25_Type_4",
             "tank_id":4193,
             "tier":9,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "4225":{
             "name":"UDES 03",
@@ -1206,7 +1206,7 @@
             "tag":"S21_UDES_03",
             "tank_id":4225,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "4353":{
             "name":"T-44",
@@ -1230,7 +1230,7 @@
             "tag":"A12_T32",
             "tank_id":4385,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "4401":{
             "name":"Type 2597 Chi-Ha",
@@ -1238,7 +1238,7 @@
             "tag":"Ch08_Type97_Chi_Ha",
             "tank_id":4401,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "4417":{
             "name":"Renault G1",
@@ -1254,7 +1254,7 @@
             "tag":"GB12_Conqueror",
             "tank_id":4433,
             "tier":9,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "4449":{
             "name":"Type 95 Heavy",
@@ -1262,7 +1262,7 @@
             "tag":"J22_Type_95",
             "tank_id":4449,
             "tier":4,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "4481":{
             "name":"Strv 103-0",
@@ -1270,7 +1270,7 @@
             "tag":"S10_Strv_103_0_Series",
             "tank_id":4481,
             "tier":9,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "4609":{
             "name":"T-26",
@@ -1278,7 +1278,7 @@
             "tag":"R09_T-26",
             "tank_id":4609,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "4625":{
             "name":"Sturmpanzer II",
@@ -1286,7 +1286,7 @@
             "tag":"G22_Sturmpanzer_II",
             "tank_id":4625,
             "tier":4,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "4641":{
             "name":"M37",
@@ -1294,7 +1294,7 @@
             "tag":"A17_M37",
             "tank_id":4641,
             "tier":4,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "4657":{
             "name":"Type T-34",
@@ -1310,7 +1310,7 @@
             "tag":"F23_AMX_13F3AM",
             "tank_id":4673,
             "tier":6,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "4689":{
             "name":"Churchill VII",
@@ -1318,7 +1318,7 @@
             "tag":"GB09_Churchill_VII",
             "tank_id":4689,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "4705":{
             "name":"Type 91 Heavy",
@@ -1326,7 +1326,7 @@
             "tag":"J21_Type_91",
             "tank_id":4705,
             "tier":3,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "4737":{
             "name":"Strv 103B",
@@ -1334,7 +1334,7 @@
             "tag":"S11_Strv_103B",
             "tank_id":4737,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "4865":{
             "name":"SU-5",
@@ -1342,7 +1342,7 @@
             "tag":"R14_SU-5",
             "tank_id":4865,
             "tier":4,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "4881":{
             "name":"Pz.Kpfw. III Ausf. E",
@@ -1350,7 +1350,7 @@
             "tag":"G102_Pz_III",
             "tank_id":4881,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "4897":{
             "name":"M2 Medium Tank",
@@ -1366,7 +1366,7 @@
             "tag":"Ch15_59_16",
             "tank_id":4913,
             "tier":6,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "4929":{
             "name":"AMX 13 90",
@@ -1374,7 +1374,7 @@
             "tag":"F17_AMX_13_90",
             "tank_id":4929,
             "tier":9,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "4945":{
             "name":"Valentine",
@@ -1382,7 +1382,7 @@
             "tag":"GB04_Valentine",
             "tank_id":4945,
             "tier":4,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "4961":{
             "name":"O-Ho",
@@ -1390,7 +1390,7 @@
             "tag":"J27_O_I_120",
             "tank_id":4961,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "5121":{
             "name":"AT-1",
@@ -1398,7 +1398,7 @@
             "tag":"R10_AT-1",
             "tank_id":5121,
             "tier":2,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "5137":{
             "name":"Tiger II",
@@ -1406,7 +1406,7 @@
             "tag":"G16_PzVIB_Tiger_II",
             "tank_id":5137,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "5153":{
             "name":"M5 Stuart",
@@ -1414,7 +1414,7 @@
             "tag":"A22_M5_Stuart",
             "tank_id":5153,
             "tier":4,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "5169":{
             "name":"Type 58",
@@ -1430,7 +1430,7 @@
             "tag":"F16_AMX_13_75",
             "tank_id":5185,
             "tier":7,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "5201":{
             "name":"Cruiser Mk. I",
@@ -1438,7 +1438,7 @@
             "tag":"GB03_Cruiser_Mk_I",
             "tank_id":5201,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "5217":{
             "name":"O-Ni",
@@ -1446,7 +1446,7 @@
             "tag":"J28_O_I_100",
             "tank_id":5217,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "5377":{
             "name":"IS-3",
@@ -1454,7 +1454,7 @@
             "tag":"R19_IS-3",
             "tank_id":5377,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "5393":{
             "name":"VK 16.02 Leopard",
@@ -1462,7 +1462,7 @@
             "tag":"G26_VK1602",
             "tank_id":5393,
             "tier":5,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "5409":{
             "name":"M7",
@@ -1470,7 +1470,7 @@
             "tag":"A23_M7_med",
             "tank_id":5409,
             "tier":5,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "5425":{
             "name":"113",
@@ -1478,7 +1478,7 @@
             "tag":"Ch22_113",
             "tank_id":5425,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "5457":{
             "name":"Comet",
@@ -1494,7 +1494,7 @@
             "tag":"J24_Mi_To_130_tons",
             "tank_id":5473,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "5633":{
             "name":"SU-8",
@@ -1502,7 +1502,7 @@
             "tag":"R26_SU-8",
             "tank_id":5633,
             "tier":6,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "5649":{
             "name":"Grille",
@@ -1510,7 +1510,7 @@
             "tag":"G23_Grille",
             "tank_id":5649,
             "tier":5,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "5665":{
             "name":"T2 Medium Tank",
@@ -1526,7 +1526,7 @@
             "tag":"Ch28_WZ_132A",
             "tank_id":5681,
             "tier":9,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "5697":{
             "name":"Bat.-Châtillon 25 t AP",
@@ -1550,7 +1550,7 @@
             "tag":"J23_Mi_To",
             "tank_id":5729,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "5889":{
             "name":"KV-3",
@@ -1558,7 +1558,7 @@
             "tag":"R39_KV-3",
             "tank_id":5889,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "5905":{
             "name":"Wespe",
@@ -1566,7 +1566,7 @@
             "tag":"G19_Wespe",
             "tank_id":5905,
             "tier":3,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "5921":{
             "name":"M26 Pershing",
@@ -1582,7 +1582,7 @@
             "tag":"Ch29_Type_62C_prot",
             "tank_id":5937,
             "tier":10,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "5953":{
             "name":"AMX 38",
@@ -1590,7 +1590,7 @@
             "tag":"F13_AMX38",
             "tank_id":5953,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "5969":{
             "name":"Centurion Mk. I",
@@ -1614,7 +1614,7 @@
             "tag":"R90_IS_4M",
             "tank_id":6145,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "6161":{
             "name":"Pz.Kpfw. II Luchs",
@@ -1622,7 +1622,7 @@
             "tag":"G25_PzII_Luchs",
             "tank_id":6161,
             "tier":4,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "6177":{
             "name":"T3 HMC",
@@ -1630,7 +1630,7 @@
             "tag":"A46_T3",
             "tank_id":6177,
             "tier":2,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "6193":{
             "name":"WZ-111 model 5A",
@@ -1638,7 +1638,7 @@
             "tag":"Ch41_WZ_111_5A",
             "tank_id":6193,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "6209":{
             "name":"AMX 50 B",
@@ -1646,7 +1646,7 @@
             "tag":"F10_AMX_50B",
             "tank_id":6209,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "6225":{
             "name":"FV215b",
@@ -1654,7 +1654,7 @@
             "tag":"GB13_FV215b",
             "tank_id":6225,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "6401":{
             "name":"SU-76M",
@@ -1662,7 +1662,7 @@
             "tag":"R24_SU-76",
             "tank_id":6401,
             "tier":3,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "6417":{
             "name":"Pz.Kpfw. III/IV",
@@ -1678,7 +1678,7 @@
             "tag":"A109_T56_GMC",
             "tank_id":6433,
             "tier":3,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "6449":{
             "name":"T-26G FT",
@@ -1686,7 +1686,7 @@
             "tag":"Ch30_T-26G_FT",
             "tank_id":6449,
             "tier":2,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "6465":{
             "name":"AMX 12 t",
@@ -1694,7 +1694,7 @@
             "tag":"F15_AMX_12t",
             "tank_id":6465,
             "tier":6,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "6481":{
             "name":"Covenanter",
@@ -1702,7 +1702,7 @@
             "tag":"GB60_Covenanter",
             "tank_id":6481,
             "tier":4,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "6657":{
             "name":"T-43",
@@ -1718,7 +1718,7 @@
             "tag":"G20_Marder_II",
             "tank_id":6673,
             "tier":3,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "6705":{
             "name":"M3G FT",
@@ -1726,7 +1726,7 @@
             "tag":"Ch31_M3G_FT",
             "tank_id":6705,
             "tier":3,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "6721":{
             "name":"BDR G1 B",
@@ -1734,7 +1734,7 @@
             "tag":"F05_BDR_G1B",
             "tank_id":6721,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "6913":{
             "name":"SU-85B",
@@ -1742,7 +1742,7 @@
             "tag":"R25_GAZ-74b",
             "tank_id":6913,
             "tier":4,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "6929":{
             "name":"Maus",
@@ -1750,7 +1750,7 @@
             "tag":"G42_Maus",
             "tank_id":6929,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "6945":{
             "name":"M10 Wolverine",
@@ -1758,7 +1758,7 @@
             "tag":"A30_M10_Wolverine",
             "tank_id":6945,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "6961":{
             "name":"SU-76G FT",
@@ -1766,7 +1766,7 @@
             "tag":"Ch32_SU-76G_FT",
             "tank_id":6961,
             "tier":4,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "6977":{
             "name":"AMX M4 mle. 45",
@@ -1774,7 +1774,7 @@
             "tag":"F07_AMX_M4_1945",
             "tank_id":6977,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "6993":{
             "name":"Cruiser Mk. II",
@@ -1782,7 +1782,7 @@
             "tag":"GB69_Cruiser_Mk_II",
             "tank_id":6993,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "7169":{
             "name":"IS-7",
@@ -1790,7 +1790,7 @@
             "tag":"R45_IS-7",
             "tank_id":7169,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "7185":{
             "name":"VK 30.01 (P)",
@@ -1806,7 +1806,7 @@
             "tag":"A31_M36_Slagger",
             "tank_id":7201,
             "tier":6,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "7217":{
             "name":"60G FT",
@@ -1814,7 +1814,7 @@
             "tag":"Ch33_60G_FT",
             "tank_id":7217,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "7233":{
             "name":"Lorraine 155 mle. 50",
@@ -1822,7 +1822,7 @@
             "tag":"F24_Lorraine155_50",
             "tank_id":7233,
             "tier":7,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "7249":{
             "name":"Centurion Action X",
@@ -1838,7 +1838,7 @@
             "tag":"R47_ISU-152",
             "tank_id":7425,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "7441":{
             "name":"VK 45.02 (P) Ausf. B",
@@ -1846,7 +1846,7 @@
             "tag":"G58_VK4502P",
             "tank_id":7441,
             "tier":9,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "7457":{
             "name":"M40/M43",
@@ -1854,7 +1854,7 @@
             "tag":"A37_M40M43",
             "tank_id":7457,
             "tier":8,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "7473":{
             "name":"WZ-131G FT",
@@ -1862,7 +1862,7 @@
             "tag":"Ch34_WZ131G_FT",
             "tank_id":7473,
             "tier":6,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "7489":{
             "name":"Lorraine 155 mle. 51",
@@ -1870,7 +1870,7 @@
             "tag":"F25_Lorraine155_51",
             "tank_id":7489,
             "tier":8,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "7505":{
             "name":"Cruiser Mk. IV",
@@ -1878,7 +1878,7 @@
             "tag":"GB59_Cruiser_Mk_IV",
             "tank_id":7505,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "7681":{
             "name":"SU-26",
@@ -1886,7 +1886,7 @@
             "tag":"R66_SU-26",
             "tank_id":7681,
             "tier":3,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "7697":{
             "name":"Ferdinand",
@@ -1894,7 +1894,7 @@
             "tag":"G37_Ferdinand",
             "tank_id":7697,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "7713":{
             "name":"T40",
@@ -1902,7 +1902,7 @@
             "tag":"A29_T40",
             "tank_id":7713,
             "tier":4,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "7729":{
             "name":"T-34-2G FT",
@@ -1910,7 +1910,7 @@
             "tag":"Ch35_T-34-2G_FT",
             "tank_id":7729,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "7745":{
             "name":"Renault FT AC",
@@ -1918,7 +1918,7 @@
             "tag":"F30_RenaultFT_AC",
             "tank_id":7745,
             "tier":2,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "7761":{
             "name":"Cruiser Mk. III",
@@ -1926,7 +1926,7 @@
             "tag":"GB58_Cruiser_Mk_III",
             "tank_id":7761,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "7937":{
             "name":"T-54",
@@ -1942,7 +1942,7 @@
             "tag":"G44_JagdTiger",
             "tank_id":7953,
             "tier":9,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "7969":{
             "name":"M12",
@@ -1950,7 +1950,7 @@
             "tag":"A32_M12",
             "tank_id":7969,
             "tier":7,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "7985":{
             "name":"WZ-111-1G FT",
@@ -1958,7 +1958,7 @@
             "tag":"Ch36_WZ111_1G_FT",
             "tank_id":7985,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "8017":{
             "name":"Valentine AT",
@@ -1966,7 +1966,7 @@
             "tag":"GB42_Valentine_AT",
             "tank_id":8017,
             "tier":3,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "8193":{
             "name":"Object 704",
@@ -1974,7 +1974,7 @@
             "tag":"R53_Object_704",
             "tank_id":8193,
             "tier":9,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "8209":{
             "name":"Pz.Kpfw. 38 (t) n.A.",
@@ -1982,7 +1982,7 @@
             "tag":"G52_Pz38_NA",
             "tank_id":8209,
             "tier":4,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "8225":{
             "name":"T28",
@@ -1990,7 +1990,7 @@
             "tag":"A39_T28",
             "tank_id":8225,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "8241":{
             "name":"WZ-111G FT",
@@ -1998,7 +1998,7 @@
             "tag":"Ch37_WZ111G_FT",
             "tank_id":8241,
             "tier":9,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "8257":{
             "name":"Renault UE 57",
@@ -2006,7 +2006,7 @@
             "tag":"F52_RenaultUE57",
             "tank_id":8257,
             "tier":3,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "8273":{
             "name":"Universal Carrier 2-pdr",
@@ -2014,7 +2014,7 @@
             "tag":"GB39_Universal_CarrierQF2",
             "tank_id":8273,
             "tier":2,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "8449":{
             "name":"212A",
@@ -2022,7 +2022,7 @@
             "tag":"R51_Object_212",
             "tank_id":8449,
             "tier":9,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "8465":{
             "name":"Panther II",
@@ -2038,7 +2038,7 @@
             "tag":"A38_T92",
             "tank_id":8481,
             "tier":10,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "8497":{
             "name":"WZ-113G FT",
@@ -2046,7 +2046,7 @@
             "tag":"Ch38_WZ113G_FT",
             "tank_id":8497,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "8529":{
             "name":"AT 15",
@@ -2054,7 +2054,7 @@
             "tag":"GB72_AT15",
             "tank_id":8529,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "8705":{
             "name":"Object 261",
@@ -2062,7 +2062,7 @@
             "tag":"R52_Object_261",
             "tank_id":8705,
             "tier":10,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "8721":{
             "name":"G.W. Tiger",
@@ -2070,7 +2070,7 @@
             "tag":"G45_G_Tiger",
             "tank_id":8721,
             "tier":9,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "8737":{
             "name":"T95",
@@ -2078,7 +2078,7 @@
             "tag":"A40_T95",
             "tank_id":8737,
             "tier":9,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "8785":{
             "name":"AT 2",
@@ -2086,7 +2086,7 @@
             "tag":"GB73_AT2",
             "tank_id":8785,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "8961":{
             "name":"KV-13",
@@ -2102,7 +2102,7 @@
             "tag":"G49_G_Panther",
             "tank_id":8977,
             "tier":7,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "8993":{
             "name":"M46 Patton",
@@ -2118,7 +2118,7 @@
             "tag":"GB57_Alecto",
             "tank_id":9041,
             "tier":4,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "9217":{
             "name":"IS-6",
@@ -2126,7 +2126,7 @@
             "tag":"R61_Object252",
             "tank_id":9217,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "9233":{
             "name":"G.W. E 100",
@@ -2134,7 +2134,7 @@
             "tag":"G61_G_E",
             "tank_id":9233,
             "tier":10,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "9249":{
             "name":"T25 AT",
@@ -2142,7 +2142,7 @@
             "tag":"A64_T25_AT",
             "tank_id":9249,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "9297":{
             "name":"FV215b (183)",
@@ -2150,7 +2150,7 @@
             "tag":"GB48_FV215b_183",
             "tank_id":9297,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "9473":{
             "name":"T-50",
@@ -2158,7 +2158,7 @@
             "tag":"R41_T-50",
             "tank_id":9473,
             "tier":5,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "9489":{
             "name":"E 100",
@@ -2166,7 +2166,7 @@
             "tag":"G56_E-100",
             "tank_id":9489,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "9505":{
             "name":"M103",
@@ -2174,7 +2174,7 @@
             "tag":"A66_M103",
             "tank_id":9505,
             "tier":9,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "9553":{
             "name":"AT 8",
@@ -2182,7 +2182,7 @@
             "tag":"GB74_AT8",
             "tank_id":9553,
             "tier":6,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "9729":{
             "name":"T-50-2",
@@ -2190,7 +2190,7 @@
             "tag":"R70_T_50_2",
             "tank_id":9729,
             "tier":5,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "9745":{
             "name":"E 75",
@@ -2198,7 +2198,7 @@
             "tag":"G55_E-75",
             "tank_id":9745,
             "tier":9,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "9761":{
             "name":"M24 Chaffee",
@@ -2206,7 +2206,7 @@
             "tag":"A34_M24_Chaffee",
             "tank_id":9761,
             "tier":5,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "9793":{
             "name":"Somua SAu 40",
@@ -2214,7 +2214,7 @@
             "tag":"F32_Somua_Sau_40",
             "tank_id":9793,
             "tier":4,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "9809":{
             "name":"Churchill Gun Carrier",
@@ -2222,7 +2222,7 @@
             "tag":"GB40_Gun_Carrier_Churchill",
             "tank_id":9809,
             "tier":6,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "9985":{
             "name":"SU-101",
@@ -2230,7 +2230,7 @@
             "tag":"R58_SU-101",
             "tank_id":9985,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "10001":{
             "name":"VK 28.01",
@@ -2238,7 +2238,7 @@
             "tag":"G66_VK2801",
             "tank_id":10001,
             "tier":6,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "10017":{
             "name":"M4A3E2 Sherman Jumbo",
@@ -2254,7 +2254,7 @@
             "tag":"F33_S_35CA",
             "tank_id":10049,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "10065":{
             "name":"AT 7",
@@ -2262,7 +2262,7 @@
             "tag":"GB75_AT7",
             "tank_id":10065,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "10241":{
             "name":"SU-100M1",
@@ -2270,7 +2270,7 @@
             "tag":"R74_SU100M1",
             "tank_id":10241,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "10257":{
             "name":"E 50",
@@ -2286,7 +2286,7 @@
             "tag":"A57_M8A1",
             "tank_id":10273,
             "tier":4,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "10497":{
             "name":"KV-2",
@@ -2294,7 +2294,7 @@
             "tag":"R77_KV2",
             "tank_id":10497,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "10513":{
             "name":"VK 45.02 (P) Ausf. A",
@@ -2302,7 +2302,7 @@
             "tag":"G67_VK4502A",
             "tank_id":10513,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "10529":{
             "name":"T67",
@@ -2310,7 +2310,7 @@
             "tag":"A58_T67",
             "tank_id":10529,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "10577":{
             "name":"Loyd Gun Carriage",
@@ -2318,7 +2318,7 @@
             "tag":"GB25_Loyd_Gun_Carriage",
             "tank_id":10577,
             "tier":2,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "10753":{
             "name":"ST-I",
@@ -2326,7 +2326,7 @@
             "tag":"R63_ST_I",
             "tank_id":10753,
             "tier":9,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "10769":{
             "name":"Tiger (P)",
@@ -2334,7 +2334,7 @@
             "tag":"G57_PzVI_Tiger_P",
             "tank_id":10769,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "10785":{
             "name":"T110E5",
@@ -2342,7 +2342,7 @@
             "tag":"A69_T110E5",
             "tank_id":10785,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "10817":{
             "name":"AMX AC mle. 46",
@@ -2350,7 +2350,7 @@
             "tag":"F35_AMX_AC_Mle1946",
             "tank_id":10817,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "10833":{
             "name":"Birch Gun",
@@ -2358,7 +2358,7 @@
             "tag":"GB26_Birch_Gun",
             "tank_id":10833,
             "tier":4,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "11009":{
             "name":"KV-4",
@@ -2366,7 +2366,7 @@
             "tag":"R73_KV4",
             "tank_id":11009,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "11025":{
             "name":"Sturer Emil",
@@ -2374,7 +2374,7 @@
             "tag":"G43_Sturer_Emil",
             "tank_id":11025,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "11041":{
             "name":"T25/2",
@@ -2382,7 +2382,7 @@
             "tag":"A72_T25_2",
             "tank_id":11041,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "11073":{
             "name":"AMX 50 Foch",
@@ -2390,7 +2390,7 @@
             "tag":"F37_AMX50_Foch",
             "tank_id":11073,
             "tier":9,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "11089":{
             "name":"Bishop",
@@ -2398,7 +2398,7 @@
             "tag":"GB28_Bishop",
             "tank_id":11089,
             "tier":5,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "11265":{
             "name":"T-150",
@@ -2406,7 +2406,7 @@
             "tag":"R72_T150",
             "tank_id":11265,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "11281":{
             "name":"Marder 38T",
@@ -2414,7 +2414,7 @@
             "tag":"G39_Marder_III",
             "tank_id":11281,
             "tier":4,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "11297":{
             "name":"T28 Prototype",
@@ -2422,7 +2422,7 @@
             "tag":"A68_T28_Prototype",
             "tank_id":11297,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "11345":{
             "name":"Crusader 5.5-in. SP",
@@ -2430,7 +2430,7 @@
             "tag":"GB29_Crusader_5inch",
             "tank_id":11345,
             "tier":7,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "11521":{
             "name":"T-10",
@@ -2438,7 +2438,7 @@
             "tag":"R81_IS8",
             "tank_id":11521,
             "tier":9,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "11537":{
             "name":"Jagdpanther II",
@@ -2446,7 +2446,7 @@
             "tag":"G71_JagdPantherII",
             "tank_id":11537,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "11553":{
             "name":"M18 Hellcat",
@@ -2454,7 +2454,7 @@
             "tag":"A41_M18_Hellcat",
             "tank_id":11553,
             "tier":6,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "11585":{
             "name":"ARL V39",
@@ -2462,7 +2462,7 @@
             "tag":"F34_ARL_V39",
             "tank_id":11585,
             "tier":6,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "11601":{
             "name":"FV3805",
@@ -2470,7 +2470,7 @@
             "tag":"GB30_FV3805",
             "tank_id":11601,
             "tier":9,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "11777":{
             "name":"KV-1",
@@ -2478,7 +2478,7 @@
             "tag":"R80_KV1",
             "tank_id":11777,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "11793":{
             "name":"Nashorn",
@@ -2486,7 +2486,7 @@
             "tag":"G40_Nashorn",
             "tank_id":11793,
             "tier":6,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "11809":{
             "name":"T23E3",
@@ -2502,7 +2502,7 @@
             "tag":"F38_Bat_Chatillon155_58",
             "tank_id":11841,
             "tier":10,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "11857":{
             "name":"FV304",
@@ -2510,7 +2510,7 @@
             "tag":"GB77_FV304",
             "tank_id":11857,
             "tier":6,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "12033":{
             "name":"SU-122-54",
@@ -2518,7 +2518,7 @@
             "tag":"R75_SU122_54",
             "tank_id":12033,
             "tier":9,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "12049":{
             "name":"Jagdpanzer E 100",
@@ -2526,7 +2526,7 @@
             "tag":"G72_JagdPz_E100",
             "tank_id":12049,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "12097":{
             "name":"AMX AC mle. 48",
@@ -2534,7 +2534,7 @@
             "tag":"F36_AMX_AC_Mle1948",
             "tank_id":12097,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "12113":{
             "name":"FV207",
@@ -2542,7 +2542,7 @@
             "tag":"GB79_FV206",
             "tank_id":12113,
             "tier":8,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "12289":{
             "name":"A-43",
@@ -2566,7 +2566,7 @@
             "tag":"GB31_Conqueror_Gun",
             "tank_id":12369,
             "tier":10,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "12545":{
             "name":"A-44",
@@ -2582,7 +2582,7 @@
             "tag":"G63_PzI_ausf_C",
             "tank_id":12561,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "12577":{
             "name":"M4 Improved",
@@ -2598,7 +2598,7 @@
             "tag":"G53_PzI",
             "tank_id":12817,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "12881":{
             "name":"Sherman III",
@@ -2614,7 +2614,7 @@
             "tag":"G82_Pz_II_AusfG",
             "tank_id":13073,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "13089":{
             "name":"T110E4",
@@ -2622,7 +2622,7 @@
             "tag":"A83_T110E4",
             "tank_id":13089,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "13121":{
             "name":"Somua S35",
@@ -2638,7 +2638,7 @@
             "tag":"GB81_FV4004",
             "tank_id":13137,
             "tier":9,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "13313":{
             "name":"Object 416",
@@ -2654,7 +2654,7 @@
             "tag":"G90_DW_II",
             "tank_id":13329,
             "tier":4,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "13345":{
             "name":"T26E4 SuperPershing",
@@ -2670,7 +2670,7 @@
             "tag":"GB44_Archer",
             "tank_id":13393,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "13569":{
             "name":"Object 268",
@@ -2678,7 +2678,7 @@
             "tag":"R88_Object268",
             "tank_id":13569,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "13585":{
             "name":"VK 20.01 (D)",
@@ -2710,7 +2710,7 @@
             "tag":"A85_T110E3",
             "tank_id":13857,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "13889":{
             "name":"AMX 50 Foch (155)",
@@ -2718,7 +2718,7 @@
             "tag":"F64_AMX_50Fosh_155",
             "tank_id":13889,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "13905":{
             "name":"FV4005 Stage II",
@@ -2726,7 +2726,7 @@
             "tag":"GB83_FV4005",
             "tank_id":13905,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "14097":{
             "name":"VK 30.01 (D)",
@@ -2750,7 +2750,7 @@
             "tag":"F62_ELC_AMX",
             "tank_id":14145,
             "tier":5,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "14161":{
             "name":"Challenger",
@@ -2758,7 +2758,7 @@
             "tag":"GB41_Challenger",
             "tank_id":14161,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "14337":{
             "name":"Object 263B",
@@ -2766,7 +2766,7 @@
             "tag":"R93_Object263B",
             "tank_id":14337,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "14353":{
             "name":"Aufklärungspanzer Panther",
@@ -2774,7 +2774,7 @@
             "tag":"G85_Auf_Panther",
             "tank_id":14353,
             "tier":7,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "14401":{
             "name":"Bat.-Châtillon 155 55",
@@ -2782,7 +2782,7 @@
             "tag":"F67_Bat_Chatillon155_55",
             "tank_id":14401,
             "tier":9,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "14417":{
             "name":"Achilles",
@@ -2790,7 +2790,7 @@
             "tag":"GB45_Achilles_IIC",
             "tank_id":14417,
             "tier":6,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "14609":{
             "name":"Leopard 1",
@@ -2814,7 +2814,7 @@
             "tag":"F66_AMX_Ob_Am105",
             "tank_id":14657,
             "tier":4,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "14673":{
             "name":"Charioteer",
@@ -2822,7 +2822,7 @@
             "tag":"GB80_Charioteer",
             "tank_id":14673,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "14865":{
             "name":"Leopard Prototyp A",
@@ -2838,7 +2838,7 @@
             "tag":"A67_T57_58",
             "tank_id":14881,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "14913":{
             "name":"SARL 42",
@@ -2862,7 +2862,7 @@
             "tag":"R43_T-70",
             "tank_id":15105,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "15121":{
             "name":"G.Pz. Mk. VI (e)",
@@ -2870,7 +2870,7 @@
             "tag":"G93_GW_Mk_VIe",
             "tank_id":15121,
             "tier":2,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "15137":{
             "name":"T21",
@@ -2878,7 +2878,7 @@
             "tag":"A71_T21",
             "tank_id":15137,
             "tier":6,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "15169":{
             "name":"FCM 36",
@@ -2886,7 +2886,7 @@
             "tag":"F50_FCM36_20t",
             "tank_id":15169,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "15185":{
             "name":"Chieftain Mk. 6",
@@ -2894,7 +2894,7 @@
             "tag":"GB84_Chieftain_Mk6",
             "tank_id":15185,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "15361":{
             "name":"T-60",
@@ -2902,7 +2902,7 @@
             "tag":"R42_T-60",
             "tank_id":15361,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "15377":{
             "name":"G.W. Tiger (P)",
@@ -2910,7 +2910,7 @@
             "tag":"G94_GW_Tiger_P",
             "tank_id":15377,
             "tier":8,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "15393":{
             "name":"T54E1",
@@ -2950,7 +2950,7 @@
             "tag":"G95_Pz_Sfl_IVb",
             "tank_id":15633,
             "tier":4,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "15649":{
             "name":"T71 DA",
@@ -2958,7 +2958,7 @@
             "tag":"A103_T71E1",
             "tank_id":15649,
             "tier":7,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "15681":{
             "name":"AMX 30 1er prototype",
@@ -2974,7 +2974,7 @@
             "tag":"GB91_Super_Conqueror",
             "tank_id":15697,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "15873":{
             "name":"T-80",
@@ -2982,7 +2982,7 @@
             "tag":"R44_T80",
             "tank_id":15873,
             "tier":4,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "15889":{
             "name":"VK 30.02 (M)",
@@ -3006,7 +3006,7 @@
             "tag":"F49_RenaultR35",
             "tank_id":15937,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "15953":{
             "name":"FV217 Badger",
@@ -3014,7 +3014,7 @@
             "tag":"GB92_FV217",
             "tank_id":15953,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "16129":{
             "name":"SU-14-1",
@@ -3022,7 +3022,7 @@
             "tag":"R91_SU14_1",
             "tank_id":16129,
             "tier":7,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "16145":{
             "name":"Pz.Sfl. IVc",
@@ -3030,7 +3030,7 @@
             "tag":"G76_Pz_Sfl_IVc",
             "tank_id":16145,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "16161":{
             "name":"M53/M55",
@@ -3038,7 +3038,7 @@
             "tag":"A88_M53_55",
             "tank_id":16161,
             "tier":9,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "16385":{
             "name":"SU-122A",
@@ -3046,7 +3046,7 @@
             "tag":"R100_SU122A",
             "tank_id":16385,
             "tier":5,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "16401":{
             "name":"Waffenträger auf Pz. IV",
@@ -3054,7 +3054,7 @@
             "tag":"G97_Waffentrager_IV",
             "tank_id":16401,
             "tier":9,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "16417":{
             "name":"M44",
@@ -3062,7 +3062,7 @@
             "tag":"A87_M44",
             "tank_id":16417,
             "tier":6,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "16449":{
             "name":"AMX 65 t",
@@ -3070,7 +3070,7 @@
             "tag":"F81_Char_de_65t",
             "tank_id":16449,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "16641":{
             "name":"MT-25",
@@ -3078,7 +3078,7 @@
             "tag":"R101_MT25",
             "tank_id":16641,
             "tier":6,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "16657":{
             "name":"Rhm.-Borsig Waffenträger",
@@ -3086,7 +3086,7 @@
             "tag":"G99_RhB_Waffentrager",
             "tank_id":16657,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "16673":{
             "name":"T37",
@@ -3094,7 +3094,7 @@
             "tag":"A94_T37",
             "tank_id":16673,
             "tier":6,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "16705":{
             "name":"AMX M4 mle. 51",
@@ -3102,7 +3102,7 @@
             "tag":"F83_AMX_M4_Mle1949_Bis",
             "tank_id":16705,
             "tier":9,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "16897":{
             "name":"Object 140",
@@ -3118,7 +3118,7 @@
             "tag":"G98_Waffentrager_E100",
             "tank_id":16913,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "16961":{
             "name":"AMX M4 mle. 54",
@@ -3126,7 +3126,7 @@
             "tag":"F82_AMX_M4_Mle1949_Ter",
             "tank_id":16961,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "17153":{
             "name":"Object 430B",
@@ -3150,7 +3150,7 @@
             "tag":"F88_AMX_13_105",
             "tank_id":17217,
             "tier":10,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "17425":{
             "name":"Pz.Kpfw. IV Ausf. D",
@@ -3166,7 +3166,7 @@
             "tag":"F87_Batignolles-Chatillon_12t",
             "tank_id":17473,
             "tier":8,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "17665":{
             "name":"Object 430 Version II",
@@ -3182,7 +3182,7 @@
             "tag":"F64_AMX_50Fosh_B",
             "tank_id":17729,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "17937":{
             "name":"StuG III Ausf. B",
@@ -3190,7 +3190,7 @@
             "tag":"G101_StuG_III",
             "tank_id":17937,
             "tier":4,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "17953":{
             "name":"M41 Walker Bulldog",
@@ -3198,7 +3198,7 @@
             "tag":"A97_M41_Bulldog",
             "tank_id":17953,
             "tier":8,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "18177":{
             "name":"T-54 ltwt.",
@@ -3206,7 +3206,7 @@
             "tag":"R109_T54S",
             "tank_id":18177,
             "tier":9,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "18193":{
             "name":"Pz.Kpfw. IV Ausf. H",
@@ -3222,7 +3222,7 @@
             "tag":"A100_T49",
             "tank_id":18209,
             "tier":9,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "18433":{
             "name":"LTTB",
@@ -3230,7 +3230,7 @@
             "tag":"R107_LTB",
             "tank_id":18433,
             "tier":8,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "18449":{
             "name":"Spähpanzer Ru 251",
@@ -3238,7 +3238,7 @@
             "tag":"G103_RU_251",
             "tank_id":18449,
             "tier":9,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "18465":{
             "name":"T18 HMC",
@@ -3246,7 +3246,7 @@
             "tag":"A108_T18_HMC",
             "tank_id":18465,
             "tier":3,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "18689":{
             "name":"KV-1S",
@@ -3254,7 +3254,7 @@
             "tag":"R13_KV-1s",
             "tank_id":18689,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "18705":{
             "name":"Mäuschen",
@@ -3262,7 +3262,7 @@
             "tag":"G110_Typ_205",
             "tank_id":18705,
             "tier":9,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "18721":{
             "name":"T82 HMC",
@@ -3270,7 +3270,7 @@
             "tag":"A27_T82",
             "tank_id":18721,
             "tier":4,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "18961":{
             "name":"Spähpanzer SP I C",
@@ -3278,7 +3278,7 @@
             "tag":"G113_SP_I_C",
             "tank_id":18961,
             "tier":7,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "18977":{
             "name":"T18",
@@ -3286,7 +3286,7 @@
             "tag":"A26_T18",
             "tank_id":18977,
             "tier":2,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "19201":{
             "name":"T-100 LT",
@@ -3294,7 +3294,7 @@
             "tag":"R132_VNII_100LT",
             "tank_id":19201,
             "tier":10,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "19217":{
             "name":"Grille 15",
@@ -3302,7 +3302,7 @@
             "tag":"G121_Grille_15_L63",
             "tank_id":19217,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "19233":{
             "name":"T57",
@@ -3310,7 +3310,7 @@
             "tag":"A15_T57",
             "tank_id":19233,
             "tier":2,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "19457":{
             "name":"LTG",
@@ -3318,7 +3318,7 @@
             "tag":"R131_Tank_Gavalov",
             "tank_id":19457,
             "tier":7,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "19473":{
             "name":"Pz.Kpfw. VII",
@@ -3326,7 +3326,7 @@
             "tag":"G134_PzKpfw_VII",
             "tank_id":19473,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "19489":{
             "name":"XM551 Sheridan",
@@ -3334,7 +3334,7 @@
             "tag":"A116_XM551",
             "tank_id":19489,
             "tier":10,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "19713":{
             "name":"Object 257",
@@ -3342,7 +3342,7 @@
             "tag":"R151_Object_257_2",
             "tank_id":19713,
             "tier":9,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "19729":{
             "name":"VK 100.01 (P)",
@@ -3350,7 +3350,7 @@
             "tag":"G115_Typ_205B",
             "tank_id":19729,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "19745":{
             "name":"T71 CMCD",
@@ -3358,7 +3358,7 @@
             "tag":"A112_T71E2R",
             "tank_id":19745,
             "tier":7,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "19969":{
             "name":"Object 430U",
@@ -3374,7 +3374,7 @@
             "tag":"G125_Spz_57_Rh",
             "tank_id":19985,
             "tier":10,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "20225":{
             "name":"Object 268 Version 4",
@@ -3382,7 +3382,7 @@
             "tag":"R149_Object_268_4",
             "tank_id":20225,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "20241":{
             "name":"HWK 12",
@@ -3390,7 +3390,7 @@
             "tag":"G126_HWK_12",
             "tank_id":20241,
             "tier":8,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "20481":{
             "name":"IS-M",
@@ -3398,7 +3398,7 @@
             "tag":"R139_IS_2_Sh",
             "tank_id":20481,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "20737":{
             "name":"Object 705",
@@ -3406,7 +3406,7 @@
             "tag":"R153_Object_705",
             "tank_id":20737,
             "tier":9,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "20993":{
             "name":"Object 705A",
@@ -3414,7 +3414,7 @@
             "tag":"R145_Object_705_A",
             "tank_id":20993,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "21249":{
             "name":"Object 263",
@@ -3422,7 +3422,7 @@
             "tag":"R93_Object263",
             "tank_id":21249,
             "tier":9,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "21505":{
             "name":"Object 430",
@@ -3438,7 +3438,7 @@
             "tag":"R47_ISU-152_IGR",
             "tank_id":38657,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "38673":{
             "name":"8,8 cm Pak 43 Jagdtiger",
@@ -3446,7 +3446,7 @@
             "tag":"G65_JagdTiger_SdKfz_185_IGR",
             "tank_id":38673,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "38689":{
             "name":"T71",
@@ -3454,7 +3454,7 @@
             "tag":"A103_T71E1_IGR",
             "tank_id":38689,
             "tier":7,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "38705":{
             "name":"WZ-132",
@@ -3462,7 +3462,7 @@
             "tag":"Ch17_WZ131_1_WZ132_IGR",
             "tank_id":38705,
             "tier":8,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "38721":{
             "name":"AMX AC mle. 48",
@@ -3470,7 +3470,7 @@
             "tag":"F36_AMX_AC_Mle1948_IGR",
             "tank_id":38721,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "38737":{
             "name":"Centurion Mk. I",
@@ -3518,7 +3518,7 @@
             "tag":"Ch11_110_IGR",
             "tank_id":38961,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "38977":{
             "name":"AMX 13 90",
@@ -3526,7 +3526,7 @@
             "tag":"F17_AMX_13_90_IGR",
             "tank_id":38977,
             "tier":9,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "38993":{
             "name":"Caernarvon",
@@ -3534,7 +3534,7 @@
             "tag":"GB11_Caernarvon_IGR",
             "tank_id":38993,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "39009":{
             "name":"Type 5 Chi-Ri",
@@ -3550,7 +3550,7 @@
             "tag":"R19_IS-3_IGR",
             "tank_id":39169,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "39185":{
             "name":"Tiger II",
@@ -3558,7 +3558,7 @@
             "tag":"G16_PzVIB_Tiger_II_IGR",
             "tank_id":39185,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "39201":{
             "name":"T34",
@@ -3566,7 +3566,7 @@
             "tag":"A13_T34_hvy_IGR",
             "tank_id":39201,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "39217":{
             "name":"121",
@@ -3582,7 +3582,7 @@
             "tag":"F08_AMX_50_100_IGR",
             "tank_id":39233,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "39249":{
             "name":"Cromwell",
@@ -3606,7 +3606,7 @@
             "tag":"R106_KV85_IGR",
             "tank_id":39425,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "39441":{
             "name":"Tiger I",
@@ -3614,7 +3614,7 @@
             "tag":"G04_PzVI_Tiger_I_IGR",
             "tank_id":39441,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "39457":{
             "name":"M4A3E2 Sherman Jumbo",
@@ -3630,7 +3630,7 @@
             "tag":"F28_105_leFH18B2_IGR",
             "tank_id":39489,
             "tier":5,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "39505":{
             "name":"FV304",
@@ -3638,7 +3638,7 @@
             "tag":"GB77_FV304_IGR",
             "tank_id":39505,
             "tier":6,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "39681":{
             "name":"KV-2",
@@ -3646,7 +3646,7 @@
             "tag":"R77_KV2_IGR",
             "tank_id":39681,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "39697":{
             "name":"StuG III Ausf. G",
@@ -3654,7 +3654,7 @@
             "tag":"G05_StuG_40_AusfG_IGR",
             "tank_id":39697,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "39713":{
             "name":"T67",
@@ -3662,7 +3662,7 @@
             "tag":"A58_T67_IGR",
             "tank_id":39713,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "39745":{
             "name":"S35 CA",
@@ -3670,7 +3670,7 @@
             "tag":"F33_S_35CA_IGR",
             "tank_id":39745,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "39761":{
             "name":"AT 15",
@@ -3678,7 +3678,7 @@
             "tag":"GB72_AT15_IGR",
             "tank_id":39761,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "39937":{
             "name":"SU-152",
@@ -3686,7 +3686,7 @@
             "tag":"R18_SU-152_IGR",
             "tank_id":39937,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "39953":{
             "name":"E 25",
@@ -3694,7 +3694,7 @@
             "tag":"G48_E-25_IGR",
             "tank_id":39953,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "39969":{
             "name":"M26 Pershing",
@@ -3710,7 +3710,7 @@
             "tag":"F62_ELC_AMX_IGR",
             "tank_id":40001,
             "tier":5,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "40017":{
             "name":"Churchill I",
@@ -3718,7 +3718,7 @@
             "tag":"GB08_Churchill_I_IGR",
             "tank_id":40017,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "40193":{
             "name":"KV-5",
@@ -3726,7 +3726,7 @@
             "tag":"R54_KV-5_IGR",
             "tank_id":40193,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "40209":{
             "name":"Panther",
@@ -3742,7 +3742,7 @@
             "tag":"A11_T29_IGR",
             "tank_id":40225,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "40257":{
             "name":"Bat.-Châtillon 25 t",
@@ -3758,7 +3758,7 @@
             "tag":"GB13_FV215b_IGR",
             "tank_id":40273,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "40449":{
             "name":"Valentine II",
@@ -3766,7 +3766,7 @@
             "tag":"R31_Valentine_LL_IGR",
             "tank_id":40449,
             "tier":4,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "40465":{
             "name":"Ferdinand",
@@ -3774,7 +3774,7 @@
             "tag":"G37_Ferdinand_IGR",
             "tank_id":40465,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "40481":{
             "name":"M4 Sherman",
@@ -3790,7 +3790,7 @@
             "tag":"R45_IS-7_IGR",
             "tank_id":40705,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "40721":{
             "name":"Maus",
@@ -3798,7 +3798,7 @@
             "tag":"G42_Maus_IGR",
             "tank_id":40721,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "40737":{
             "name":"M48A5 Patton",
@@ -3814,7 +3814,7 @@
             "tag":"R11_MS-1_bot",
             "tank_id":40961,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "40977":{
             "name":"Leichttraktor",
@@ -3822,7 +3822,7 @@
             "tag":"G12_Ltraktor_bot",
             "tank_id":40977,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "40993":{
             "name":"T1 Cunningham",
@@ -3830,7 +3830,7 @@
             "tag":"A01_T1_Cunningham_bot",
             "tank_id":40993,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "41009":{
             "name":"Renault NC-31",
@@ -3838,7 +3838,7 @@
             "tag":"Ch06_Renault_NC31_bot",
             "tank_id":41009,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "41025":{
             "name":"Renault FT",
@@ -3846,7 +3846,7 @@
             "tag":"F01_RenaultFT_bot",
             "tank_id":41025,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "41041":{
             "name":"Vickers Medium Mk. I",
@@ -3862,7 +3862,7 @@
             "tag":"J01_NC27_bot",
             "tank_id":41057,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "41217":{
             "name":"T-26",
@@ -3870,7 +3870,7 @@
             "tag":"R09_T-26_bot",
             "tank_id":41217,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "41233":{
             "name":"Pz.Kpfw. II",
@@ -3878,7 +3878,7 @@
             "tag":"G06_PzII_bot",
             "tank_id":41233,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "41249":{
             "name":"T2 Medium Tank",
@@ -3894,7 +3894,7 @@
             "tag":"Ch08_Type97_Chi_Ha_bootcamp",
             "tank_id":41265,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "41281":{
             "name":"B1",
@@ -3902,7 +3902,7 @@
             "tag":"F04_B1_bootcamp",
             "tank_id":41281,
             "tier":2,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "41297":{
             "name":"Vickers Medium Mk. II",
@@ -3918,7 +3918,7 @@
             "tag":"J04_Ke_Ni_bootcamp",
             "tank_id":41313,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "41473":{
             "name":"LTP",
@@ -3926,7 +3926,7 @@
             "tag":"R86_LTP_bootcamp",
             "tank_id":41473,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "41489":{
             "name":"Panzerjäger I",
@@ -3934,7 +3934,7 @@
             "tag":"G21_PanzerJager_I_bootcamp",
             "tank_id":41489,
             "tier":2,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "41505":{
             "name":"M3 Stuart",
@@ -3942,7 +3942,7 @@
             "tag":"A03_M3_Stuart_bootcamp",
             "tank_id":41505,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "41569":{
             "name":"Type 95 Heavy",
@@ -3950,7 +3950,7 @@
             "tag":"J22_Type_95_bootcamp",
             "tank_id":41569,
             "tier":2,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "41729":{
             "name":"SU-76I",
@@ -3958,7 +3958,7 @@
             "tag":"R50_SU76I_bootcamp",
             "tank_id":41729,
             "tier":2,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "41745":{
             "name":"Panther",
@@ -3974,7 +3974,7 @@
             "tag":"A22_M5_Stuart_bootcamp",
             "tank_id":41761,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "41985":{
             "name":"BT-2",
@@ -3982,7 +3982,7 @@
             "tag":"R08_BT-2_bootcamp",
             "tank_id":41985,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "42001":{
             "name":"Pz.Kpfw. 38 (t)",
@@ -3990,7 +3990,7 @@
             "tag":"G08_Pz38t_bootcamp",
             "tank_id":42001,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "42017":{
             "name":"M2 Medium Tank",
@@ -4006,7 +4006,7 @@
             "tag":"R03_BT-7_bootcamp",
             "tank_id":42241,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "42257":{
             "name":"Pz.Kpfw. IV Ausf. D",
@@ -4038,7 +4038,7 @@
             "tag":"G102_Pz_III_bootcamp",
             "tank_id":42513,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "42753":{
             "name":"T-34-85",
@@ -4054,7 +4054,7 @@
             "tag":"G117_Toldi_III_bootcamp",
             "tank_id":42769,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "43009":{
             "name":"T-46",
@@ -4062,7 +4062,7 @@
             "tag":"R22_T-46_bootcamp",
             "tank_id":43009,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "43265":{
             "name":"T-70",
@@ -4070,7 +4070,7 @@
             "tag":"R43_T-70_bootcamp",
             "tank_id":43265,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "43521":{
             "name":"T-44 FL",
@@ -4086,7 +4086,7 @@
             "tag":"A12_T32_FL",
             "tank_id":43553,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "47361":{
             "name":"STG Guard",
@@ -4118,7 +4118,7 @@
             "tag":"G85_Aufklarungspanzer_V",
             "tank_id":47889,
             "tier":8,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "48129":{
             "name":"Loza's M4-A2 Sherman",
@@ -4134,7 +4134,7 @@
             "tag":"G138_VK168_02_Mauerbrecher",
             "tank_id":48145,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "48385":{
             "name":"T-103",
@@ -4142,7 +4142,7 @@
             "tag":"R135_T_103",
             "tank_id":48385,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "48401":{
             "name":"Kanonenjagdpanzer 105",
@@ -4150,7 +4150,7 @@
             "tag":"G112_KanonenJagdPanzer_105",
             "tank_id":48401,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "48641":{
             "name":"Object 252U Defender",
@@ -4158,7 +4158,7 @@
             "tag":"R134_Object_252K",
             "tank_id":48641,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "48657":{
             "name":"Waffenträger auf E 100 (P)",
@@ -4166,7 +4166,7 @@
             "tag":"G98_Waffentrager_E100_P",
             "tank_id":48657,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "48897":{
             "name":"T-44-100 (B)",
@@ -4182,7 +4182,7 @@
             "tag":"G138_VK168_02",
             "tank_id":48913,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "49169":{
             "name":"Tiger 131",
@@ -4190,7 +4190,7 @@
             "tag":"G136_Tiger_131",
             "tank_id":49169,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "49409":{
             "name":"IS-6 B",
@@ -4198,7 +4198,7 @@
             "tag":"R61_Object252_BF",
             "tank_id":49409,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "49425":{
             "name":"Jagdtiger (H)",
@@ -4206,7 +4206,7 @@
             "tag":"G44_JagdTigerH",
             "tank_id":49425,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "49665":{
             "name":"Object 252U",
@@ -4214,7 +4214,7 @@
             "tag":"R134_Object_252U",
             "tank_id":49665,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "49681":{
             "name":"Tiger II (H)",
@@ -4222,7 +4222,7 @@
             "tag":"G16_PzVIB_Tiger_II_F",
             "tank_id":49681,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "49921":{
             "name":"KV-122",
@@ -4230,7 +4230,7 @@
             "tag":"R133_KV_122",
             "tank_id":49921,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "49937":{
             "name":"Schwarzpanzer 58",
@@ -4246,7 +4246,7 @@
             "tag":"G114_Rheinmetall_Skorpian",
             "tank_id":50193,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "50433":{
             "name":"Object 257 (P)",
@@ -4254,7 +4254,7 @@
             "tag":"R129_Object_257",
             "tank_id":50433,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "50449":{
             "name":"Pz.Kpfw. V Berge-Panther",
@@ -4270,7 +4270,7 @@
             "tag":"R126_Object_730_5",
             "tank_id":50689,
             "tier":10,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "50705":{
             "name":"Pz. V Berge-Panther Alpha",
@@ -4286,7 +4286,7 @@
             "tag":"R125_T_45",
             "tank_id":50945,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "50961":{
             "name":"leKpz M 41 90 mm GF",
@@ -4294,7 +4294,7 @@
             "tag":"G120_M41_90_GrandFinal",
             "tank_id":50961,
             "tier":8,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "51201":{
             "name":"KV-220-2 Beta Test",
@@ -4302,7 +4302,7 @@
             "tag":"R38_KV-220_beta",
             "tank_id":51201,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "51361":{
             "name":"Progetto M35 mod. 46",
@@ -4334,7 +4334,7 @@
             "tag":"A19_T2_lt",
             "tank_id":51489,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "51553":{
             "name":"Type 3 Chi-Nu Kai",
@@ -4366,7 +4366,7 @@
             "tag":"R33_Churchill_LL",
             "tank_id":51713,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "51729":{
             "name":"Pz.Kpfw. II Ausf. J",
@@ -4374,7 +4374,7 @@
             "tag":"G36_PzII_J",
             "tank_id":51729,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "51745":{
             "name":"Ram II",
@@ -4390,7 +4390,7 @@
             "tag":"J05_Ke_Ni_B",
             "tank_id":51809,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "51841":{
             "name":"L-60",
@@ -4398,7 +4398,7 @@
             "tag":"S15_L_60",
             "tank_id":51841,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "51985":{
             "name":"Pz.Kpfw. S35 739 (f)",
@@ -4414,7 +4414,7 @@
             "tag":"A33_MTLS-1G14",
             "tank_id":52001,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "52065":{
             "name":"STA-2",
@@ -4430,7 +4430,7 @@
             "tag":"S22_Strv_S1",
             "tank_id":52097,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "52225":{
             "name":"BT-SV",
@@ -4438,7 +4438,7 @@
             "tag":"R34_BT-SV",
             "tank_id":52225,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "52241":{
             "name":"Pz.Kpfw. B2 740 (f)",
@@ -4446,7 +4446,7 @@
             "tag":"G35_B-1bis_captured",
             "tank_id":52241,
             "tier":4,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "52257":{
             "name":"M4A2E4 Sherman",
@@ -4462,7 +4462,7 @@
             "tag":"J19_Tiger_I_Jpn",
             "tank_id":52321,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "52353":{
             "name":"Strv 81",
@@ -4478,7 +4478,7 @@
             "tag":"R31_Valentine_LL",
             "tank_id":52481,
             "tier":4,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "52497":{
             "name":"Pz.Kpfw. 38H 735 (f)",
@@ -4486,7 +4486,7 @@
             "tag":"G33_H39_captured",
             "tank_id":52497,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "52513":{
             "name":"M6A2E1",
@@ -4494,7 +4494,7 @@
             "tag":"A45_M6A2E1",
             "tank_id":52513,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "52561":{
             "name":"Tortoise",
@@ -4502,7 +4502,7 @@
             "tag":"GB32_Tortoise",
             "tank_id":52561,
             "tier":9,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "52577":{
             "name":"Nameless",
@@ -4510,7 +4510,7 @@
             "tag":"J29_Nameless",
             "tank_id":52577,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "52609":{
             "name":"Primo Victoria",
@@ -4526,7 +4526,7 @@
             "tag":"R67_M3_LL",
             "tank_id":52737,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "52753":{
             "name":"Tiger 217",
@@ -4534,7 +4534,7 @@
             "tag":"G137_PzVI_Tiger_217",
             "tank_id":52753,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "52769":{
             "name":"M22 Locust",
@@ -4542,7 +4542,7 @@
             "tag":"A43_M22_Locust",
             "tank_id":52769,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "52817":{
             "name":"AC 1 Sentinel",
@@ -4574,7 +4574,7 @@
             "tag":"R54_KV-5",
             "tank_id":53249,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "53505":{
             "name":"T-127",
@@ -4582,7 +4582,7 @@
             "tag":"R56_T-127",
             "tank_id":53505,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "53537":{
             "name":"T1E6",
@@ -4590,7 +4590,7 @@
             "tag":"A74_T1_E6",
             "tank_id":53537,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "53585":{
             "name":"Matilda Black Prince",
@@ -4606,7 +4606,7 @@
             "tag":"R78_SU_85I",
             "tank_id":53761,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "53793":{
             "name":"T95E2",
@@ -4622,7 +4622,7 @@
             "tag":"GB63_TOG_II",
             "tank_id":53841,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "54017":{
             "name":"KV-220-2",
@@ -4630,7 +4630,7 @@
             "tag":"R38_KV-220",
             "tank_id":54017,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "54033":{
             "name":"Pz.Kpfw. V/IV Alpha",
@@ -4646,7 +4646,7 @@
             "tag":"GB71_AT_15A",
             "tank_id":54097,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "54273":{
             "name":"SU-76I",
@@ -4654,7 +4654,7 @@
             "tag":"R50_SU76I",
             "tank_id":54273,
             "tier":3,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "54289":{
             "name":"Löwe",
@@ -4662,7 +4662,7 @@
             "tag":"G51_Lowe",
             "tank_id":54289,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "54305":{
             "name":"M4A3E8 Sherman",
@@ -4678,7 +4678,7 @@
             "tag":"GB51_Excelsior",
             "tank_id":54353,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "54529":{
             "name":"Tetrarch",
@@ -4686,7 +4686,7 @@
             "tag":"R84_Tetrarch_LL",
             "tank_id":54529,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "54545":{
             "name":"Pz.Kpfw. T 25",
@@ -4702,7 +4702,7 @@
             "tag":"GB78_Sexton_I",
             "tank_id":54609,
             "tier":3,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "54785":{
             "name":"SU-100Y",
@@ -4710,7 +4710,7 @@
             "tag":"R49_SU100Y",
             "tank_id":54785,
             "tier":6,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "54801":{
             "name":"Pz.Kpfw. T 15",
@@ -4718,7 +4718,7 @@
             "tag":"G50_T-15",
             "tank_id":54801,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "54865":{
             "name":"Light Mk. VIC",
@@ -4726,7 +4726,7 @@
             "tag":"GB76_Mk_VIC",
             "tank_id":54865,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "55057":{
             "name":"Pz.Kpfw. IV hydrostat.",
@@ -4742,7 +4742,7 @@
             "tag":"A93_T7_Combat_Car",
             "tank_id":55073,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "55121":{
             "name":"FV201 (A45)",
@@ -4750,7 +4750,7 @@
             "tag":"GB52_A45",
             "tank_id":55121,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "55297":{
             "name":"SU-122-44",
@@ -4758,7 +4758,7 @@
             "tag":"R89_SU122_44",
             "tank_id":55297,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "55313":{
             "name":"8,8 cm Pak 43 Jagdtiger",
@@ -4766,7 +4766,7 @@
             "tag":"G65_JagdTiger_SdKfz_185",
             "tank_id":55313,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "55569":{
             "name":"E 25",
@@ -4774,7 +4774,7 @@
             "tag":"G48_E-25",
             "tank_id":55569,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "55633":{
             "name":"FV4202",
@@ -4830,7 +4830,7 @@
             "tag":"A101_M56",
             "tank_id":56353,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "56401":{
             "name":"T95/Chieftain",
@@ -4838,7 +4838,7 @@
             "tag":"GB88_T95_Chieftain_turret",
             "tank_id":56401,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "56577":{
             "name":"LTP",
@@ -4846,7 +4846,7 @@
             "tag":"R86_LTP",
             "tank_id":56577,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "56609":{
             "name":"T28 Concept",
@@ -4854,7 +4854,7 @@
             "tag":"A102_T28_concept",
             "tank_id":56609,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "56657":{
             "name":"Caernarvon Action X",
@@ -4862,7 +4862,7 @@
             "tag":"GB93_Caernarvon_AX",
             "tank_id":56657,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "56833":{
             "name":"T-44-122",
@@ -4902,7 +4902,7 @@
             "tag":"G41_DickerMax",
             "tank_id":57105,
             "tier":6,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "57121":{
             "name":"M46 Patton KR",
@@ -4918,7 +4918,7 @@
             "tag":"R98_T44_85M",
             "tank_id":57345,
             "tier":8,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "57361":{
             "name":"Pz.Kpfw. IV Schmalturm",
@@ -4950,7 +4950,7 @@
             "tag":"A112_T71E2",
             "tank_id":57633,
             "tier":7,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "57873":{
             "name":"Pz.Kpfw. III Ausf. J",
@@ -4966,7 +4966,7 @@
             "tag":"A99_T92_LT",
             "tank_id":57889,
             "tier":8,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "58113":{
             "name":"T-34-85M",
@@ -4982,7 +4982,7 @@
             "tag":"G16_PzVIB_Tiger_II_training",
             "tank_id":58129,
             "tier":1,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "58369":{
             "name":"Object 260",
@@ -4990,7 +4990,7 @@
             "tag":"R110_Object_260",
             "tank_id":58369,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "58385":{
             "name":"Panther",
@@ -5006,7 +5006,7 @@
             "tag":"R111_ISU130",
             "tank_id":58625,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "58641":{
             "name":"VK 72.01 (K)",
@@ -5014,7 +5014,7 @@
             "tag":"G92_VK7201",
             "tank_id":58641,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "58657":{
             "name":"Chrysler K GF",
@@ -5022,7 +5022,7 @@
             "tag":"A115_Chrysler_K",
             "tank_id":58657,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "58881":{
             "name":"IS-5 (Object 730)",
@@ -5030,7 +5030,7 @@
             "tag":"R113_Object_730",
             "tank_id":58881,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "58913":{
             "name":"T26E5",
@@ -5038,7 +5038,7 @@
             "tag":"A117_T26E5",
             "tank_id":58913,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "59137":{
             "name":"IS-2",
@@ -5046,7 +5046,7 @@
             "tag":"R71_IS_2B",
             "tank_id":59137,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "59169":{
             "name":"T26E5 Patriot",
@@ -5054,7 +5054,7 @@
             "tag":"A117_T26E5_Patriot",
             "tank_id":59169,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "59393":{
             "name":"T-34-85 Rudy",
@@ -5070,7 +5070,7 @@
             "tag":"G122_VK6501H",
             "tank_id":59409,
             "tier":5,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "59425":{
             "name":"T34 B",
@@ -5078,7 +5078,7 @@
             "tag":"A13_T34_hvy_BF",
             "tank_id":59425,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "59649":{
             "name":"ISU-122S",
@@ -5086,7 +5086,7 @@
             "tag":"R116_ISU122C_Berlin",
             "tank_id":59649,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "59665":{
             "name":"Großtraktor - Krupp",
@@ -5118,7 +5118,7 @@
             "tag":"R114_Object_244",
             "tank_id":60161,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "60177":{
             "name":"Panther mit 8,8 cm L/71",
@@ -5134,7 +5134,7 @@
             "tag":"R115_IS-3_auto",
             "tank_id":60417,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "60433":{
             "name":"Pz.Kpfw. II Ausf. D",
@@ -5142,7 +5142,7 @@
             "tag":"G108_PzKpfwII_AusfD",
             "tank_id":60433,
             "tier":2,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "60673":{
             "name":"Object 907A",
@@ -5158,7 +5158,7 @@
             "tag":"G104_Stug_IV",
             "tank_id":60689,
             "tier":5,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "60929":{
             "name":"BT-7 artillery",
@@ -5166,7 +5166,7 @@
             "tag":"R105_BT_7A",
             "tank_id":60929,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "60945":{
             "name":"T 55A",
@@ -5182,7 +5182,7 @@
             "tag":"R119_Object_777",
             "tank_id":61185,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "61201":{
             "name":"Tiger I L/56",
@@ -5190,7 +5190,7 @@
             "tag":"G04_PzVI_Tiger_IA",
             "tank_id":61201,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "61441":{
             "name":"T-28E with F-30",
@@ -5214,7 +5214,7 @@
             "tag":"F97_ELC_EVEN_90",
             "tank_id":61505,
             "tier":8,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "61697":{
             "name":"T-22 medium",
@@ -5230,7 +5230,7 @@
             "tag":"G109_Steyr_WT",
             "tank_id":61713,
             "tier":7,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "61761":{
             "name":"AMX Canon d'assaut 105",
@@ -5238,7 +5238,7 @@
             "tag":"F89_Canon_dassaut_de_105",
             "tank_id":61761,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "61953":{
             "name":"T-44-100",
@@ -5254,7 +5254,7 @@
             "tag":"G112_KanonenJagdPanzer",
             "tank_id":61969,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "62017":{
             "name":"AMX M4 mle. 49 Liberté",
@@ -5262,7 +5262,7 @@
             "tag":"F74_AMX_M4_1949_Liberte",
             "tank_id":62017,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "62209":{
             "name":"KV-4 KTTS",
@@ -5270,7 +5270,7 @@
             "tag":"R121_KV4_KTT",
             "tank_id":62209,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "62225":{
             "name":"VK 45.02 (P) Ausf. B7",
@@ -5278,7 +5278,7 @@
             "tag":"G58_VK4502P7",
             "tank_id":62225,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "62257":{
             "name":"WZ-111 Qilin",
@@ -5286,7 +5286,7 @@
             "tag":"Ch41_WZ_111_QL",
             "tank_id":62257,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "62273":{
             "name":"Somua SM",
@@ -5294,7 +5294,7 @@
             "tag":"F84_Somua_SM",
             "tank_id":62273,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "62481":{
             "name":"Rheinmetall Skorpion",
@@ -5302,7 +5302,7 @@
             "tag":"G114_Skorpian",
             "tank_id":62481,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "62513":{
             "name":"113 Beijing Opera",
@@ -5310,7 +5310,7 @@
             "tag":"Ch22_113_Beijing_Opera",
             "tank_id":62513,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "62529":{
             "name":"Lorraine 40 t",
@@ -5326,7 +5326,7 @@
             "tag":"R123_Kirovets_1",
             "tank_id":62721,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "62737":{
             "name":"VK 100.01 (P) Ausf. B",
@@ -5334,7 +5334,7 @@
             "tag":"G115_Typ_205_4_Jun",
             "tank_id":62737,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "62769":{
             "name":"113",
@@ -5342,7 +5342,7 @@
             "tag":"Ch22_113P",
             "tank_id":62769,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "62785":{
             "name":"AMX M4 mle. 49",
@@ -5350,7 +5350,7 @@
             "tag":"F74_AMX_M4_1949",
             "tank_id":62785,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "62977":{
             "name":"T-44-100 (R)",
@@ -5366,7 +5366,7 @@
             "tag":"G118_VK4503",
             "tank_id":62993,
             "tier":7,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "63025":{
             "name":"WZ-120G FT",
@@ -5374,7 +5374,7 @@
             "tag":"Ch40_WZ120G_FT",
             "tank_id":63025,
             "tier":9,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "63041":{
             "name":"M4A1 Revalorisé",
@@ -5390,7 +5390,7 @@
             "tag":"R128_KV4_Kreslavskiy",
             "tank_id":63233,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "63249":{
             "name":"Turán III prototípus",
@@ -5406,7 +5406,7 @@
             "tag":"Ch39_WZ120_1G_FT",
             "tank_id":63281,
             "tier":8,
-            "type":"mediumTank"
+            "type":"AT-SPG"
         },
         "63297":{
             "name":"AMX 13 57 GF",
@@ -5414,7 +5414,7 @@
             "tag":"F69_AMX13_57_100_GrandFinal",
             "tank_id":63297,
             "tier":7,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "63505":{
             "name":"43 M. Toldi III",
@@ -5422,7 +5422,7 @@
             "tag":"G117_Toldi_III",
             "tank_id":63505,
             "tier":3,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "63537":{
             "name":"121B",
@@ -5470,7 +5470,7 @@
             "tag":"F69_AMX13_57_100",
             "tank_id":63809,
             "tier":7,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "64017":{
             "name":"leKpz M 41 90 mm",
@@ -5478,7 +5478,7 @@
             "tag":"G120_M41_90",
             "tank_id":64017,
             "tier":8,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "64049":{
             "name":"T-34-3",
@@ -5494,7 +5494,7 @@
             "tag":"F65_FCM_50t",
             "tank_id":64065,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "64257":{
             "name":"(R) IS-7",
@@ -5502,7 +5502,7 @@
             "tag":"R45_IS-7_fallout",
             "tank_id":64257,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "64273":{
             "name":"Panzer 58 Mutz",
@@ -5526,7 +5526,7 @@
             "tag":"Ch23_112",
             "tank_id":64561,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "64769":{
             "name":"KV-2 (R)",
@@ -5534,7 +5534,7 @@
             "tag":"R152_KV2_W",
             "tank_id":64769,
             "tier":6,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "64817":{
             "name":"Type 64",
@@ -5542,7 +5542,7 @@
             "tag":"Ch24_Type64",
             "tank_id":64817,
             "tier":6,
-            "type":"mediumTank"
+            "type":"lightTank"
         },
         "64833":{
             "name":"(R) AMX 50 B",
@@ -5550,7 +5550,7 @@
             "tag":"F10_AMX_50B_fallout",
             "tank_id":64833,
             "tier":10,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "65041":{
             "name":"Env_Artillery",
@@ -5558,7 +5558,7 @@
             "tag":"Env_Artillery",
             "tank_id":65041,
             "tier":1,
-            "type":"mediumTank"
+            "type":"SPG"
         },
         "65073":{
             "name":"WZ-111 Alpine Tiger",
@@ -5566,7 +5566,7 @@
             "tag":"Ch03_WZ_111_A",
             "tank_id":65073,
             "tier":8,
-            "type":"mediumTank"
+            "type":"heavyTank"
         },
         "65281":{
             "name":"Spectator",
@@ -5574,7 +5574,7 @@
             "tag":"Observer",
             "tank_id":65281,
             "tier":1,
-            "type":"mediumTank"
+            "type":"lightTank"
         }
     },
     "meta":{

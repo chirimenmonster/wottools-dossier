@@ -1,3 +1,12 @@
+@charset "utf-8";
+
 td.tankId, td.battles, td.winRate, td.wn8 {
     text-align: right;
+}
+
+.sort.desc:after {
+    content:"▼";
+}
+.sort.asc:after {
+    content:"▲";
 }

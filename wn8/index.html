@@ -4,22 +4,24 @@
         <title>WoT player WN8</title>
         <link rel="stylesheet" href="test.css">
         <script src="test.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
     </head>
     <body>
         <h1>WoT player WN8</h1>
         <h2>get player stats with WN8</h2>
-        <form action="/playerstats.json" method="get" name="test">
+        <form name="formPlayerstats" onSubmit="addTable();return false;">
             player account:
             <input type="text" name="nickname"></input>
-            <input type="submit" value="get JSON"></input>
-            <input type="button" value="view" onClick="addTable()"></input>
+            <button type="submit">view</button>
+            <button type="button" onClick="redirectPlayerstats();">get JSON</button>
         </form>
         <h2>get vehicle database</h2>
-        <form action="/vehicledb.json" method="get">
+        <form name="formVehicledb">
             Vehicle Database
-            <input type="submit" value="get JSON"></input>
+            <button type="button" onClick="redirectVehicledb();">get JSON</button>
         </form>
         <h2>Rate</h2>
-        <div id="test"></div>
+        <div id="total"></div>
+        <div id="users"></div>
     </body>
 </html>

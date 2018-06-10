@@ -51,7 +51,7 @@ def getVehicleList():
                 'nation': nation,
                 'tag': tag,
                 'tier': v.level,
-                'type': VEHICLE_CLASSES[v.typeID],
+                'type': list(set(VEHICLE_CLASSES) & v.tags)[0],
                 'tank_id': v.compactDescr
             }
     size = len(data)
