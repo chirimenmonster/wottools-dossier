@@ -1,16 +1,46 @@
 @charset "utf-8";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css");
 
-td.tankId, td.battles, td.winRate, td.wn8 {
+body {
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th {
+    border-bottom: solid 1px;
+}
+
+td.name {
+    width: 20em;
+}
+
+td.tier, td.type {
+    width: 8em;
+}
+
+td.nation {
+    width: 8em;
+}
+
+td.battles, td.winRate, td.wn8 {
+    width: 6em;
+}
+
+td.name, td.battles, td.winRate, td.wn8 {
     text-align: right;
 }
 
-td.nation, td.type {
+td.tier, td.nation, td.type {
     text-align: center;
 }
 
 .sort.desc:after {
-    content:"▼";
+    content: "▼";
 }
 .sort.asc:after {
-    content:"▲";
+    content: "▲";
 }
