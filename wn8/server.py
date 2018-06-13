@@ -41,7 +41,7 @@ class MyHandler(SimpleHTTPRequestHandler, object):
             self.__sendJSON(result, 'vehicledb.json', lastmodified, requireBody)
             return True
         _, ext = os.path.splitext(path)
-        if path != '/' and ext not in ( '.html', '.css', '.js', '.jpg', '.png' ):
+        if path != '/' and ext not in ( '.html', '.css', '.js', '.jpg', '.png', '.ico' ):
            self.send_error(404)
            return True
         return False

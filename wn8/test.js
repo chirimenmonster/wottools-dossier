@@ -1,13 +1,5 @@
 
 
-function getUrlPlayerstats() {
-    return "playerstats.json?nickname=" + document.forms.formPlayerstats.nickname.value;
-}
-
-function getUrlVehicledb() {
-    return "vehicledb.json";
-}
-
 function round(number, precision) {
     let shift = function (number, precision, reverseShift) {
         if (reverseShift) {
@@ -59,27 +51,16 @@ function createTableRow(vehicle, stats) {
     return tr
 }
 
-function fetchVehicleDB() {
-    let httpObj = new XMLHttpRequest();
-    httpObj.open("get", getUrlVehicledb(), true);
-    httpObj.onload = function(){
-        vehicleDB = JSON.parse(this.responseText);
-    }
-    httpObj.send(null);
-}
 
 function addTable() {
-    let nickname = document.forms.formPlayerstats.nickname.value;
-    let httpObj = new XMLHttpRequest();
-    httpObj.open("get", getUrlPlayerstats(), true);
-    httpObj.onload = function(){
-        let data = JSON.parse(this.responseText);
+    playerStats.fetch.call(playerStats, RES.PLAYER_STATS, function(self){
+        let data = self.database[RES.PLAYER_STATS];
         {
             let p = document.getElementById("total");
             p.textContent = null;
             let div = document.createElement("div");
             p.appendChild(div);
-            div.innerText = "player: " + nickname;
+            div.innerText = "player: " + self.nickname;
             let totalStats = document.createElement("table");
             totalStats.appendChild(createTableHeader(false));
             totalStats.appendChild(createTableRow(null, data.total));
@@ -96,8 +77,9 @@ function addTable() {
             tbody.className = "list";
             vehicleStats.appendChild(tbody);
 
+            let vehicles = self.database[RES.VEHICLE_LIST].data
             for (let k in data.vehicles) {
-                tbody.appendChild(createTableRow(vehicleDB.data[k], data.vehicles[k]));
+                tbody.appendChild(createTableRow(vehicles[k], data.vehicles[k]));
             }
             p.appendChild(vehicleStats);
         }
@@ -105,21 +87,49 @@ function addTable() {
             valueNames: [ 'name', 'tier', 'nation', 'type', 'battles', 'winRate', 'wn8' ]
         };
         userList = new List('users', options);
+    });
+}
+
+const RES = {
+    PLAYER_STATS: 'playerstats.json',
+    VEHICLE_LIST: 'vehicledb.json'
+};
+
+PlayerStats = function(){
+    this.database = {};
+};
+
+PlayerStats.prototype.redirect = function(path){
+    window.location.href = this.getURL(path);
+};
+
+PlayerStats.prototype.getURL = function(path){
+    let query = null;
+    switch (path) {
+    case RES.PLAYER_STATS:
+        this.nickname = document.forms.formPlayerstats.nickname.value;
+        query = '?nickname=' + this.nickname;
+    }
+    let url = path + (query || '');
+    return url;
+};
+
+PlayerStats.prototype.fetch = function(path, callback){
+    let self = this;
+    let httpObj = new XMLHttpRequest();
+    httpObj.open('get', this.getURL(path), true);
+    httpObj.onload = function(){
+        self.database[path] = JSON.parse(httpObj.responseText);
+        if (callback) {
+            callback(self);
+        }
     }
     httpObj.send(null);
-}
+};
 
-function redirectPlayerstats() {
-    window.location.href = getUrlPlayerstats();
-}
 
-function redirectVehicledb() {
-    window.location.href = getUrlVehicledb();
-}
+var playerStats = new PlayerStats();
 
-var vehicleDB;
+window.addEventListener('load', playerStats.fetch.call(playerStats, RES.VEHICLE_LIST));
 
-window.onload = function(){
-    fetchVehicleDB();
-}
 

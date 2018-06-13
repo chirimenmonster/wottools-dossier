@@ -13,12 +13,12 @@
             player account:
             <input type="text" name="nickname"></input>
             <button type="submit">view</button>
-            <button type="button" onClick="redirectPlayerstats();">get JSON</button>
+            <button type="button" onClick="playerStats.redirect('playerstats.json');">get JSON</button>
         </form>
         <h2>get vehicle database</h2>
         <form name="formVehicledb">
             Vehicle Database
-            <button type="button" onClick="redirectVehicledb();">get JSON</button>
+            <button type="button" onClick="playerStats.redirect('vehicledb.json');">get JSON</button>
         </form>
         <h2>Rate</h2>
         <div id="total"></div>
