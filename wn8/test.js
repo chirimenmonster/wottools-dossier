@@ -52,44 +52,6 @@ function createTableRow(vehicle, stats) {
 }
 
 
-function addTable() {
-    playerStats.fetch.call(playerStats, RES.PLAYER_STATS, function(self){
-        let data = self.database[RES.PLAYER_STATS];
-        {
-            let p = document.getElementById("total");
-            p.textContent = null;
-            let div = document.createElement("div");
-            p.appendChild(div);
-            div.innerText = "player: " + self.nickname;
-            let totalStats = document.createElement("table");
-            totalStats.appendChild(createTableHeader(false));
-            totalStats.appendChild(createTableRow(null, data.total));
-            p.appendChild(totalStats);
-        }
-
-        {
-            let p = document.getElementById("users");
-            p.textContent = null;
-            let vehicleStats = document.createElement("table");
-            vehicleStats.appendChild(createTableHeader(true));
-        
-            let tbody = document.createElement("tbody");
-            tbody.className = "list";
-            vehicleStats.appendChild(tbody);
-
-            let vehicles = self.database[RES.VEHICLE_LIST].data
-            for (let k in data.vehicles) {
-                tbody.appendChild(createTableRow(vehicles[k], data.vehicles[k]));
-            }
-            p.appendChild(vehicleStats);
-        }
-        let options = {
-            valueNames: [ 'name', 'tier', 'nation', 'type', 'battles', 'winRate', 'wn8' ]
-        };
-        userList = new List('users', options);
-    });
-}
-
 const RES = {
     PLAYER_STATS: 'playerstats.json',
     VEHICLE_LIST: 'vehicledb.json'
@@ -114,22 +76,64 @@ PlayerStats.prototype.getURL = function(path){
     return url;
 };
 
-PlayerStats.prototype.fetch = function(path, callback){
-    let self = this;
-    let httpObj = new XMLHttpRequest();
-    httpObj.open('get', this.getURL(path), true);
-    httpObj.onload = function(){
-        self.database[path] = JSON.parse(httpObj.responseText);
-        if (callback) {
-            callback(self);
-        }
+PlayerStats.prototype.fetchVehicleList = function(){
+    let path = RES.VEHICLE_LIST;
+    let url = this.getURL(path);
+    fetch(url)
+    .then(response => response.json())
+    .then(json => this.database[path] = json)
+    .catch(error => console.error(error));
+};
+
+PlayerStats.prototype.fetchPlayerStats = function(){
+    let path = RES.PLAYER_STATS;
+    let url = this.getURL(path);
+    fetch(url)
+    .then(response => response.json())
+    .then(json => this.database[path] = json)
+    .then(() => this.addTable())
+    .catch(error => console.error(error));
+};
+
+PlayerStats.prototype.addTable = function(){
+    let data = this.database[RES.PLAYER_STATS];
+    {
+        let p = document.getElementById('total');
+        p.textContent = null;
+        let div = document.createElement('div');
+        p.appendChild(div);
+        div.innerText = 'player: ' + this.nickname;
+        let totalStats = document.createElement('table');
+        totalStats.appendChild(createTableHeader(false));
+        totalStats.appendChild(createTableRow(null, data.total));
+        p.appendChild(totalStats);
     }
-    httpObj.send(null);
+    {
+        let p = document.getElementById('users');
+        p.textContent = null;
+        let vehicleStats = document.createElement('table');
+        vehicleStats.appendChild(createTableHeader(true));
+        
+        let tbody = document.createElement('tbody');
+        tbody.className = 'list';
+        vehicleStats.appendChild(tbody);
+
+        let vehicles = this.database[RES.VEHICLE_LIST].data;
+        for (let k in data.vehicles) {
+            tbody.appendChild(createTableRow(vehicles[k], data.vehicles[k]));
+        }
+        p.appendChild(vehicleStats);
+    }
+    let options = {
+        valueNames: [ 'name', 'tier', 'nation', 'type', 'battles', 'winRate', 'wn8' ]
+    };
+    userList = new List('users', options);
+    return this;
 };
 
 
 var playerStats = new PlayerStats();
 
-window.addEventListener('load', playerStats.fetch.call(playerStats, RES.VEHICLE_LIST));
+window.addEventListener('load', () => playerStats.fetchVehicleList());
 
 

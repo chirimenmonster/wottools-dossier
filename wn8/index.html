@@ -9,7 +9,7 @@
     <body>
         <h1>WoT player WN8</h1>
         <h2>get player stats with WN8</h2>
-        <form name="formPlayerstats" onSubmit="addTable();return false;">
+        <form name="formPlayerstats" onSubmit="playerStats.fetchPlayerStats();return false;">
             player account:
             <input type="text" name="nickname"></input>
             <button type="submit">view</button>
