@@ -14,6 +14,13 @@ VEHICLE_CLASSES = ('lightTank', 'mediumTank', 'heavyTank', 'SPG', 'AT-SPG')
 VEHICLE_ORDER = ('lightTank', 'mediumTank', 'heavyTank', 'AT-SPG', 'SPG')
 VEHICLE_TYPES = ('LT', 'MT', 'HT', 'SPG', 'TD')
 
+try:
+    with open('appid.json', 'r') as fp:
+        APPLICATION_ID = json.load(fp)['application_id']
+except:
+    pass
+
+
 class CachedDatabase(object):
     cache = None
     cacheLifetime = 0
@@ -59,7 +66,11 @@ class CachedDatabase(object):
         if param:
             url += '?' + urllib.urlencode(param)
         response = urllib2.urlopen(url).read()
-        return json.loads(response)
+        data = json.loads(response)
+        if data['status'] == 'error':
+            print '{}: {}: {}'.format(data['error']['code'], data['error']['message'], data['error']['value'])
+            raise SystemExit
+        return data
 
     def fetch(self):
         data = self.fetchJSON(self.sourceURL, self.requestParam)
@@ -85,6 +96,7 @@ class VehicleDatabase(CachedDatabase):
         'application_id': APPLICATION_ID,
         'fields': 'tank_id,tag,name,nation,tier,type'
     }
+    
     def __init__(self, config={}):
         super(VehicleDatabase, self).__init__(config=config)
         self.index = {}
@@ -266,6 +278,7 @@ class WN8Exp(CachedDatabase):
     
 if __name__ == '__main__':
     vehicleDatabase = VehicleDatabase()
+    print '{} vehicles from wargaming API, {} vehicles from internal'.format(len(vehicleDatabase.dump()['data']), len(vehicleDatabase.dumpAlt()['data']))
 
     playerList = PlayerList()
     result = playerList.get('Chirimen')
@@ -279,8 +292,8 @@ if __name__ == '__main__':
     print len(result)
     result = playerVehicleStats.get(tank_id)
     print result
-    result = vehicleDatabase.get(tank_id)
-    print result
+    #result = vehicleDatabase.get(tank_id)
+    #print result
 
     wn8Exp = WN8Exp()
     result = wn8Exp.get(tank_id)
