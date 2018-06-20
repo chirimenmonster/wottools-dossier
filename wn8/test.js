@@ -89,10 +89,22 @@ PlayerStats.prototype.fetchPlayerStats = function(){
     let path = RES.PLAYER_STATS;
     let url = this.getURL(path);
     fetch(url)
-    .then(response => response.json())
-    .then(json => this.database[path] = json)
-    .then(() => this.addTable())
-    .catch(error => console.error(error));
+    .then(response => {
+        if (!response.ok) {
+            response.text()
+            .then(text => this.showError(text));
+        } else {
+            response.json()
+            .then(json => this.database[path] = json)
+            .then(() => this.addTable());
+        }
+    })
+    .catch(error => this.showError(error));
+};
+
+PlayerStats.prototype.showError = function(error){
+    document.getElementById('total').textContent = error;
+    document.getElementById('users').textContent = null;
 };
 
 PlayerStats.prototype.addTable = function(){

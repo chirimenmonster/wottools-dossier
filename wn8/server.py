@@ -35,9 +35,6 @@ class MyHandler(SimpleHTTPRequestHandler, object):
             except URLError as e:
                 print e
                 return True
-            except Exception as e:
-                self.__sendError(e)
-                return True
             self.__sendJSON(result, 'playerstats.json', lastmodified, requireBody)
             return True
         elif path == '/vehicledb.json':
@@ -49,9 +46,6 @@ class MyHandler(SimpleHTTPRequestHandler, object):
             except URLError as e:
                 print e
                 return True
-            #except:
-            #    print 'error'
-            #    return True
             self.__sendJSON(result, 'vehicledb.json', lastmodified, requireBody)
             return True
         _, ext = os.path.splitext(path)

@@ -250,8 +250,8 @@ class PlayerList(WGAPIDatabase):
     def __fetchPlayer(self):
         result = self.fetchJSON(self.sourceURL, self.requestParam)
         if result['meta']['count'] == 0:
-            error = { 'code': 404, 'message': 'USER NOT FOUND', 'value': '' }
-            raise Exception(error)
+            error = { 'code': 404, 'message': 'USER NOT FOUND', 'value': 'user not found "{}"'.format(self.__accountName) }
+            raise WGAPIError(error, self.sourceURL)
         data = result['data'][0]
         data['timestamp'] = int(time())
         self.cache[data['nickname']] = data
