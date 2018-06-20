@@ -154,6 +154,10 @@ if __name__ == '__main__':
     config = parser.parse_args()
 
     options = { 'force': config.force }
-    result, _ = getWN8(config.nickname, config=options)
-
-    output(result)
+    try:
+        result, _ = getWN8(config.nickname, config=options)
+        output(result)
+    except wgapi.URLError as e:
+        print '{}, {}'.format(e.reason, e.filename)
+    except wgapi.WGAPIError as e:
+        print '{}, {}'.format(e, e.description)

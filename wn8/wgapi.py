@@ -21,6 +21,17 @@ except:
     pass
 
 
+class URLError(urllib2.URLError):
+    def __init__(self, error, url):
+        super(URLError, self).__init__(error)
+        self.filename = url
+
+class WGAPIError(urllib2.HTTPError):
+    def __init__(self, result, url):
+        super(WGAPIError, self).__init__(url, result['code'], result['message'], None, None)
+        self.description = result['value']
+
+
 class CachedDatabase(object):
     cache = None
     cacheLifetime = 0
@@ -65,11 +76,11 @@ class CachedDatabase(object):
     def fetchJSON(self, url, param):
         if param:
             url += '?' + urllib.urlencode(param)
-        response = urllib2.urlopen(url).read()
+        try:
+            response = urllib2.urlopen(url).read()
+        except urllib2.URLError as e:
+            raise URLError(e.reason, url)
         data = json.loads(response)
-        if data['status'] == 'error':
-            print '{}: {}: {}'.format(data['error']['code'], data['error']['message'], data['error']['value'])
-            raise SystemExit
         return data
 
     def fetch(self):
@@ -87,7 +98,15 @@ class CachedDatabase(object):
         return self.cache.items()
 
 
-class VehicleDatabase(CachedDatabase):
+class WGAPIDatabase(CachedDatabase):
+    def fetchJSON(self, url, param):
+        data = super(WGAPIDatabase, self).fetchJSON(url, param)
+        if data['status'] == 'error':
+            raise WGAPIError(data['error'], url)
+        return data
+        
+
+class VehicleDatabase(WGAPIDatabase):
     cacheLifetime = 60 * 60 * 24 * 7
     cacheFile = 'vehicledb.json'
     cachePathAlt = '../vehiclelist.json'
@@ -144,7 +163,7 @@ class VehicleDatabase(CachedDatabase):
         return self.cacheAlt
 
 
-class PlayerVehicles(CachedDatabase):
+class PlayerVehicles(WGAPIDatabase):
     cacheLifetime = 60 * 60 * 24 * 1
     sourceURL = URL_WGAPI + '/wot/account/tanks/'
 
@@ -168,7 +187,7 @@ class PlayerVehicles(CachedDatabase):
         return [ v['tank_id'] for v in self.cache['data'][self.__accountId] ]
 
 
-class PlayerVehicleStats(CachedDatabase):
+class PlayerVehicleStats(WGAPIDatabase):
     cacheLifetime = 60 * 60 * 24 * 1
     sourceURL = URL_WGAPI + '/wot/tanks/stats/'
 
@@ -211,7 +230,7 @@ class PlayerVehicleStats(CachedDatabase):
         return self.cache[str(tankId)]
 
         
-class PlayerList(CachedDatabase):
+class PlayerList(WGAPIDatabase):
     cacheLifetime = 60 * 60 * 24 * 1
     cacheFile = 'playerlist.json'
     sourceURL = URL_WGAPI + '/wot/account/list/'
@@ -230,8 +249,9 @@ class PlayerList(CachedDatabase):
 
     def __fetchPlayer(self):
         result = self.fetchJSON(self.sourceURL, self.requestParam)
-        if not result['data']:
-            raise 'not found'
+        if result['meta']['count'] == 0:
+            error = { 'code': 404, 'message': 'USER NOT FOUND', 'value': '' }
+            raise Exception(error)
         data = result['data'][0]
         data['timestamp'] = int(time())
         self.cache[data['nickname']] = data

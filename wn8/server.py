@@ -9,7 +9,7 @@ from datetime import datetime
 import locale
 
 from calcwn8 import getWN8
-from wgapi import VehicleDatabase
+from wgapi import VehicleDatabase, URLError, WGAPIError
 
 PORT = 8080
 
@@ -29,15 +29,29 @@ class MyHandler(SimpleHTTPRequestHandler, object):
         if path == '/playerstats.json':
             try:
                 result, lastmodified = self.__getPlayerstats(query)
-            except:
+            except WGAPIError as e:
+                self.__sendError(e)
+                return True
+            except URLError as e:
+                print e
+                return True
+            except Exception as e:
+                self.__sendError(e)
                 return True
             self.__sendJSON(result, 'playerstats.json', lastmodified, requireBody)
             return True
         elif path == '/vehicledb.json':
             try:
                 result, lastmodified = self.__getVehicleDB(query)
-            except:
+            except WGAPIError as e:
+                self.__sendError(e)
                 return True
+            except URLError as e:
+                print e
+                return True
+            #except:
+            #    print 'error'
+            #    return True
             self.__sendJSON(result, 'vehicledb.json', lastmodified, requireBody)
             return True
         _, ext = os.path.splitext(path)
@@ -55,7 +69,18 @@ class MyHandler(SimpleHTTPRequestHandler, object):
         self.send_header('Last-Modified', datetime.utcfromtimestamp(lastmodified).strftime('%a, %d %b %Y %X GMT'))
         self.end_headers()
         if requireBody:
-            self.wfile.write(result)    
+            self.wfile.write(result)
+
+    def __sendError(self, error):
+        if isinstance(error, WGAPIError):
+            result = '{}: {}'.format(error, error.description)
+        else:
+            result = '{}: {}'.format(error.message['code'], error.message['message'])
+        self.send_response(404)
+        self.send_header('Content-type', 'text/plain')
+        self.send_header('Content-Length', len(result))
+        self.end_headers()
+        self.wfile.write(result)   
         
     def __getPlayerstats(self, query):
         queryDict = parse_qs(query)
