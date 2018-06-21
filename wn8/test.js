@@ -37,10 +37,10 @@ function createTableHeader(vehicle) {
 }
 
 
-function createTableRow(vehicle, stats, isVehicle) {
+function createTableRow(vehicle, stats) {
     let tr = document.createElement('tr');
     const vehicleType = { lightTank: 'LT', mediumTank: 'MT', heavyTank: 'HT', 'AT-SPG': 'TD', SPG: 'SPG', '': '' };
-    if (isVehicle) {
+    if (vehicle !== null) {
         if (!vehicle) {
             vehicle = { name: '(unknown)', tier: '', nation: '', type: '' };
         }
@@ -138,7 +138,7 @@ PlayerStats.prototype.addTable = function(){
 
         let vehicles = this.database[RES.VEHICLE_LIST].data;
         for (let k in data.vehicles) {
-            tbody.appendChild(createTableRow(vehicles[k], data.vehicles[k], true));
+            tbody.appendChild(createTableRow(vehicles[k], data.vehicles[k]));
         }
         p.appendChild(vehicleStats);
     }
