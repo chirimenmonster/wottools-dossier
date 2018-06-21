@@ -7,6 +7,8 @@ from urlparse import urlparse, parse_qs
 import json
 from datetime import datetime
 import locale
+import traceback
+from collections import OrderedDict
 
 from calcwn8 import getWN8
 from wgapi import VehicleDatabase, URLError, WGAPIError
@@ -29,22 +31,16 @@ class MyHandler(SimpleHTTPRequestHandler, object):
         if path == '/playerstats.json':
             try:
                 result, lastmodified = self.__getPlayerstats(query)
-            except WGAPIError as e:
+            except Exception as e:
                 self.__sendError(e)
-                return True
-            except URLError as e:
-                print e
                 return True
             self.__sendJSON(result, 'playerstats.json', lastmodified, requireBody)
             return True
         elif path == '/vehicledb.json':
             try:
                 result, lastmodified = self.__getVehicleDB(query)
-            except WGAPIError as e:
+            except Exception as e:
                 self.__sendError(e)
-                return True
-            except URLError as e:
-                print e
                 return True
             self.__sendJSON(result, 'vehicledb.json', lastmodified, requireBody)
             return True
@@ -55,7 +51,7 @@ class MyHandler(SimpleHTTPRequestHandler, object):
         return False
 
     def __sendJSON(self, data, filename, lastmodified, requireBody):
-        result = json.dumps(data, sort_keys=True)
+        result = json.dumps(OrderedDict((('status', 'success'), ('result', data))))
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
         self.send_header('Content-Length', len(result))
@@ -67,11 +63,41 @@ class MyHandler(SimpleHTTPRequestHandler, object):
 
     def __sendError(self, error):
         if isinstance(error, WGAPIError):
-            result = '{}: {}'.format(error, error.description)
+            code = 404
+            message = '{}: {}'.format(error, error.description)
+            result = json.dumps({
+                'status': 'error',
+                'error': {
+                    'code': code,
+                    'message': str(error),
+                    'description': error.description,
+                    'url': error.filename
+                }
+            })
+        elif isinstance(error, URLError):
+            code = 500
+            result = json.dumps({
+                'status': 'error',
+                'error': {
+                    'code': code,
+                    'message': str(error.reason),
+                    'url': error.filename
+                }
+            })
         else:
-            result = '{}: {}'.format(error.message['code'], error.message['message'])
-        self.send_response(404)
-        self.send_header('Content-type', 'text/plain')
+            code = 500
+            message = 'unknown error'
+            result = json.dumps({
+                'status': 'error',
+                'error': {
+                    'code': code,
+                    'message': message,
+                    'error': str(error),
+                    'traceback': traceback.format_exc()
+                }
+            })
+        self.send_response(code)
+        self.send_header('Content-type', 'application/json')
         self.send_header('Content-Length', len(result))
         self.end_headers()
         self.wfile.write(result)   
@@ -79,25 +105,16 @@ class MyHandler(SimpleHTTPRequestHandler, object):
     def __getPlayerstats(self, query):
         queryDict = parse_qs(query)
         if 'nickname' not in queryDict or len(queryDict['nickname']) != 1:
-           self.send_error(404, 'parameter "nickname" is not specified')
-           raise
+           result = { 'code': 400, 'message': 'Bad Request', 'value': 'parameter "nickname" is not specified' }
+           raise WGAPIError(result, '')
         nickname = queryDict['nickname'][0]
         wn8data, lastmodified = getWN8(nickname)
-        try:
-            pass
-        except:
-           self.send_error(404, 'player\'s stats is not found')
-           raise Exception
         return wn8data, lastmodified   
 
     def __getVehicleDB(self, query):
-        try:
-            vehicleDB = VehicleDatabase()
-            data = vehicleDB.dumpAlt()
-            lastmodified = vehicleDB.lastmodifiedAlt
-        except:
-           self.send_error(404, 'vehicleDB is not found')
-           return None
+        vehicleDB = VehicleDatabase()
+        data = vehicleDB.dumpAlt()
+        lastmodified = vehicleDB.lastmodifiedAlt
         return data, lastmodified   
     
 

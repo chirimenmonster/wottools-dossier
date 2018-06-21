@@ -12,7 +12,7 @@ function round(number, precision) {
 }
 
 function addTdElement(p, className, data) {
-    let td = document.createElement("td");
+    let td = document.createElement('td');
     td.className = className
     td.innerText = data
     p.appendChild(td)
@@ -37,13 +37,18 @@ function createTableHeader(vehicle) {
 }
 
 function createTableRow(vehicle, stats) {
-    let tr = document.createElement("tr");
-    const vehicleType = { lightTank: "LT", mediumTank: "MT", heavyTank: "HT", "AT-SPG": "TD", SPG: "SPG" };
+    let tr = document.createElement('tr');
+    const vehicleType = { lightTank: 'LT', mediumTank: 'MT', heavyTank: 'HT', 'AT-SPG': 'TD', SPG: 'SPG' };
     if (vehicle) {
         addTdElement(tr, 'name', vehicle.name);
         addTdElement(tr, 'tier', vehicle.tier);
         addTdElement(tr, 'nation', vehicle.nation);
         addTdElement(tr, 'type', vehicleType[vehicle.type]);
+    } else {
+        addTdElement(tr, 'name', '');
+        addTdElement(tr, 'tier', '');
+        addTdElement(tr, 'nation', '');
+        addTdElement(tr, 'type', '');       
     }
     addTdElement(tr, 'battles', stats.battles);
     addTdElement(tr, 'winRate', round(stats.wins / stats.battles * 100, 2).toFixed(2));
@@ -76,38 +81,40 @@ PlayerStats.prototype.getURL = function(path){
     return url;
 };
 
-PlayerStats.prototype.fetchVehicleList = function(){
-    let path = RES.VEHICLE_LIST;
+PlayerStats.prototype.fetch = function(path){
     let url = this.getURL(path);
-    fetch(url)
-    .then(response => response.json())
-    .then(json => this.database[path] = json)
-    .catch(error => console.error(error));
+    if (this.database[path]) {
+        return this.database[path];
+    }
+    return fetch(url)
+        .then(response => {
+            if (response.ok) {
+               return response.json()
+                    .then(json => this.database[path] = json.result);
+            } else {
+                return response.json()
+                    .then(json => Promise.reject(json.error));
+            }
+        });
 };
 
-PlayerStats.prototype.fetchPlayerStats = function(){
-    let path = RES.PLAYER_STATS;
-    let url = this.getURL(path);
-    fetch(url)
-    .then(response => {
-        if (!response.ok) {
-            response.text()
-            .then(text => this.showError(text));
-        } else {
-            response.json()
-            .then(json => this.database[path] = json)
-            .then(() => this.addTable());
-        }
-    })
-    .catch(error => this.showError(error));
+PlayerStats.prototype.fetchAll = function(){
+    this.database[RES.PLAYER_STATS] = null;
+    let targets = [ RES.VEHICLE_LIST, RES.PLAYER_STATS ];
+    Promise.all(targets.map(target => this.fetch(target)))
+        .then(() => this.addTable())
+        .catch(error => this.showError(error));
 };
 
 PlayerStats.prototype.showError = function(error){
-    document.getElementById('total').textContent = error;
+    console.log('error: ' + error)
+    document.getElementById('total').textContent = error.message + ', ' + error.description;
     document.getElementById('users').textContent = null;
 };
 
+
 PlayerStats.prototype.addTable = function(){
+    console.log('addTable: ' + Object.keys(this.database));
     let data = this.database[RES.PLAYER_STATS];
     {
         let p = document.getElementById('total');
@@ -139,13 +146,33 @@ PlayerStats.prototype.addTable = function(){
     let options = {
         valueNames: [ 'name', 'tier', 'nation', 'type', 'battles', 'winRate', 'wn8' ]
     };
-    userList = new List('users', options);
+    this.sort();
+    //userList = new List('users', options);
     return this;
 };
 
+PlayerStats.prototype.sort = function(){
+    const nationOrder = { ussr: 0, germany: 1, usa: 2, china: 3, france: 4, uk: 5, japan: 6, czech: 7, sweden: 8, poland: 9, italy: 10 };
+    const typeOrder = { LT: 0, MT: 1, HT: 2, TD: 3, SPG: 4 };
+    let tbody = document.querySelector('#users tbody.list');
+    let a = Array.from(tbody.querySelectorAll('tr'))
+    .map(function(v){
+        let result;
+        try {
+            let tier = v.querySelector('.tier').innerHTML;
+            let nation = nationOrder[v.querySelector('.nation').innerHTML];
+            let type = typeOrder[v.querySelector('.type').innerHTML];
+            let name = v.querySelector('.name').innerHTML;
+            result = { dom: v, tier: tier, nation: nation, type: type, name: name };
+        } catch {
+            result = { dom: v, tier: 0, nation: 0, type: 0, name: 0 };
+        }
+        return result;
+    })
+    .sort(function(a, b){ return (b.tier - a.tier) * 1000 + (a.nation - b.nation) * 100 + (a.type - b.type) * 10 })
+    .forEach(function(v){ tbody.appendChild(v.dom) });
+};
 
 var playerStats = new PlayerStats();
 
-window.addEventListener('load', () => playerStats.fetchVehicleList());
-
-
+//window.addEventListener('load', () => playerStats.fetchVehicleList());
