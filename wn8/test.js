@@ -110,8 +110,8 @@ class PlayerStats {
 
     createVehicleStats() {
         const nationOrder = { ussr: 0, germany: 1, usa: 2, china: 3, france: 4,
-            uk: 5, japan: 6, czech: 7, sweden: 8, poland: 9, italy: 10, '': 11 };
-        const typeOrder = { LT: 0, MT: 1, HT: 2, TD: 3, SPG: 4, '': 5 };
+            uk: 5, japan: 6, czech: 7, sweden: 8, poland: 9, italy: 10, '': '' };
+        const typeOrder = { LT: 0, MT: 1, HT: 2, TD: 3, SPG: 4, '': '' };
         this.order = { tier: -1, nation: 1, type: 1, tankName: 1, tankId: 1 };
         this.dom = [];
         let stats = this.database[RES.PLAYER_STATS].vehicles;
@@ -138,28 +138,29 @@ class PlayerStats {
     }
 
     sortByTier() {
-        this.dom.sort((a, b) => (a.tier - b.tier) * this.order.tier)
+        this.dom.sort((a, b) => (a.tier === '') ? 1 : (b.tier === '') ? -1 : (a.tier - b.tier) * this.order.tier );
         this.order.tier = - this.order.tier;
     }
 
     sortByNation() {
-        this.dom.sort((a, b) => (a.nation - b.nation) * this.order.nation);
-        this.order.nation = - this.order.nation;    
+        this.dom.sort((a, b) => (a.nation === '') ? 1 : (b.nation === '') ? -1 : (a.nation - b.nation) * this.order.nation);
+        this.order.nation = - this.order.nation;
     }
 
     sortByType() {
-        this.dom.sort((a, b) => (a.type - b.type) * this.order.type);
-        this.order.type = - this.order.type;    
+        this.dom.sort((a, b) => (a.type === '') ? 1 : (b.type === '') ? -1 : (a.type - b.type) * this.order.type);
+        this.order.type = - this.order.type;
     }
 
     sortByTankName() {
-        this.dom.sort((a, b) => a.name.localeCompare(b.name) * this.order.tankName);
-        this.order.tankName = - this.order.tankName;    
+        const c = '(unknwon)';
+        this.dom.sort((a, b) => (a.name === c) ? 1 : (b.name === c) ? -1 : a.name.localeCompare(b.name) * this.order.tankName);
+        this.order.tankName = - this.order.tankName;
     }
     
     sortByTankId() {
         this.dom.sort((a, b) => (a.tankId - b.tankId) * this.order.tankName);
-        this.order.tankId = - this.order.tankId;    
+        this.order.tankId = - this.order.tankId;
     }
 }
 
