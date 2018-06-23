@@ -304,6 +304,14 @@
             "tier":4,
             "type":"mediumTank"
         },
+        "913":{
+            "name":"50TP prototyp",
+            "nation":"poland",
+            "tag":"Pl08_Czolg_T_wz51",
+            "tank_id":913,
+            "tier":8,
+            "type":"heavyTank"
+        },
         "929":{
             "name":"M15/42",
             "nation":"italy",
@@ -3395,7 +3403,7 @@
         "20481":{
             "name":"IS-M",
             "nation":"ussr",
-            "tag":"R139_IS_2_Sh",
+            "tag":"R139_IS_M",
             "tank_id":20481,
             "tier":8,
             "type":"heavyTank"
@@ -3431,6 +3439,22 @@
             "tank_id":21505,
             "tier":9,
             "type":"mediumTank"
+        },
+        "21761":{
+            "name":"K-91",
+            "nation":"ussr",
+            "tag":"R144_K_91",
+            "tank_id":21761,
+            "tier":10,
+            "type":"mediumTank"
+        },
+        "22017":{
+            "name":"Object 277",
+            "nation":"ussr",
+            "tag":"R155_Object_277",
+            "tank_id":22017,
+            "tier":10,
+            "type":"heavyTank"
         },
         "38657":{
             "name":"ISU-152",
@@ -4072,21 +4096,29 @@
             "tier":2,
             "type":"lightTank"
         },
-        "43521":{
-            "name":"T-44 FL",
-            "nation":"ussr",
-            "tag":"R20_T-44_FL",
-            "tank_id":43521,
-            "tier":8,
-            "type":"mediumTank"
+        "46145":{
+            "name":"AMX 13 105 SPORT",
+            "nation":"france",
+            "tag":"F88_AMX_13_105_sport",
+            "tank_id":46145,
+            "tier":10,
+            "type":"lightTank"
         },
-        "43553":{
-            "name":"T32 FL",
-            "nation":"usa",
-            "tag":"A12_T32_FL",
-            "tank_id":43553,
-            "tier":8,
+        "46353":{
+            "name":"E 100 SPORT",
+            "nation":"germany",
+            "tag":"G56_E-100_sport",
+            "tank_id":46353,
+            "tier":10,
             "type":"heavyTank"
+        },
+        "47105":{
+            "name":"T-34 shielded",
+            "nation":"ussr",
+            "tag":"R154_T_34E_1943",
+            "tank_id":47105,
+            "tier":5,
+            "type":"mediumTank"
         },
         "47361":{
             "name":"STG Guard",
@@ -4912,6 +4944,14 @@
             "tier":8,
             "type":"mediumTank"
         },
+        "57169":{
+            "name":"Sherman VC Firefly",
+            "nation":"uk",
+            "tag":"GB95_Ekins_Firefly_M4A4",
+            "tank_id":57169,
+            "tier":6,
+            "type":"mediumTank"
+        },
         "57345":{
             "name":"T-44 lightweight",
             "nation":"ussr",
@@ -5110,6 +5150,14 @@
             "tag":"R112_T54_45",
             "tank_id":59905,
             "tier":8,
+            "type":"mediumTank"
+        },
+        "59937":{
+            "name":"T26E3 Eagle 7",
+            "nation":"usa",
+            "tag":"A121_M26_Cologne",
+            "tank_id":59937,
+            "tier":7,
             "type":"mediumTank"
         },
         "60161":{
@@ -5472,6 +5520,14 @@
             "tier":7,
             "type":"lightTank"
         },
+        "64001":{
+            "name":"T-62A SPORT",
+            "nation":"ussr",
+            "tag":"R87_T62A_sport",
+            "tank_id":64001,
+            "tier":10,
+            "type":"mediumTank"
+        },
         "64017":{
             "name":"leKpz M 41 90 mm",
             "nation":"germany",
@@ -5578,8 +5634,8 @@
         }
     },
     "meta":{
-        "count":697,
-        "total":697,
-        "version":"World of Tanks v.1.0.1.1 #877"
+        "count":704,
+        "total":704,
+        "version":"World of Tanks v.1.0.2.1 #907"
     }
 }
