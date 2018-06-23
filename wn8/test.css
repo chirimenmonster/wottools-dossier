@@ -42,9 +42,9 @@ td.tier, td.nation, td.type {
     text-align: center;
 }
 
-.sort.desc:after {
+.desc:after {
     content: "▼";
 }
-.sort.asc:after {
+.asc:after {
     content: "▲";
 }
