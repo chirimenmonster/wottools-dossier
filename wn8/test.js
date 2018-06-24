@@ -152,7 +152,7 @@ class PlayerStats {
     createVehicleStats() {
         const nationOrder = { ussr: 0, germany: 1, usa: 2, china: 3, france: 4,
             uk: 5, japan: 6, czech: 7, sweden: 8, poland: 9, italy: 10, '': '' };
-        const typeOrder = { LT: 0, MT: 1, HT: 2, TD: 3, SPG: 4, '': '' };
+        const typeOrder = { HT: 0, MT: 1, LT: 2, TD: 3, SPG: 4, '': '' };
         this.order = { tier: 1, nation: 1, type: 1, name: 1, tankId: 1 };
         this.dom = [];
         let stats = this.database[RES.PLAYER_STATS].vehicles;
@@ -239,7 +239,7 @@ PlayerStats.prototype.addTable = function(){
         p.appendChild(vehicleStats);
     }
     this.createVehicleStats();
-    [ 'name', 'type', 'nation', 'tier' ]
+    [ 'name', 'nation', 'type', 'tier' ]
         .map(k => this.sort(k, false));
     this.sort(null, true);
     return this;
