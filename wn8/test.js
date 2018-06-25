@@ -20,33 +20,6 @@ function addTdElement(p, className, data) {
 
 
 
-function createTableRow(vehicle, stats) {
-    let tr = document.createElement('tr');
-    const vehicleType = { lightTank: 'LT', mediumTank: 'MT', heavyTank: 'HT', 'AT-SPG': 'TD', SPG: 'SPG', '': '' };
-    if (vehicle !== null) {
-        let data = vehicle.data;
-        {
-            let td = document.createElement('td');
-            td.className = 'name';
-            tr.appendChild(td);
-            let tankId = document.createElement('span');
-            tankId.className = 'tankId';
-            tankId.innerText = vehicle.id;
-            let name = document.createElement('span');
-            name.className = 'tankName';
-            name.innerText = data.name;
-            td.appendChild(tankId);
-            td.appendChild(name);
-        }
-        addTdElement(tr, 'tier', data.tier);
-        addTdElement(tr, 'nation', data.nation);
-        addTdElement(tr, 'type', vehicleType[data.type]);
-    }
-    addTdElement(tr, 'battles', stats.battles);
-    addTdElement(tr, 'winRate', round(stats.wins / stats.battles * 100, 2).toFixed(2));
-    addTdElement(tr, 'wn8', round(stats.wn8, 0));
-    return tr
-}
 
 
 const RES = {
@@ -59,6 +32,7 @@ const vehicleType = { lightTank: 'LT', mediumTank: 'MT', heavyTank: 'HT', 'AT-SP
 class PlayerStats {
     constructor() {
         this.database = {};
+        const vehicleType = { lightTank: 'LT', mediumTank: 'MT', heavyTank: 'HT', 'AT-SPG': 'TD', SPG: 'SPG', '': '' };
         const unknown = '(unknown)';
         this.sortOrder = {
             tier: (a, b) => (a.tier === '') ? 1 : (b.tier === '') ? -1 : (b.tier - a.tier) * this.order['tier'],
@@ -66,6 +40,30 @@ class PlayerStats {
             type: (a, b) => (a.type === '') ? 1 : (b.type === '') ? -1 : (a.type - b.type) * this.order['type'],
             name: (a, b) => (a.name === unknown) ? 1 : (b.name === unknown) ? -1 : a.name.localeCompare(b.name) * this.order['name'],
             tankId: (a, b) => (a.tankId - b.tankId) * this.order['tankId']
+        };
+        this.value = {
+            tier: (tankId) => this.database[RES.VEHICLE_LIST].data[tankId].tier,
+            nation: (tankId) => this.database[RES.VEHICLE_LIST].data[tankId].nation,
+            type: (tankId) => vehicleType[this.database[RES.VEHICLE_LIST].data[tankId].type],
+            name: (tankId) => this.database[RES.VEHICLE_LIST].data[tankId].name,
+            battles: (tankId) => {
+                let stats = tankId ?
+                    this.database[RES.PLAYER_STATS].vehicles[tankId] :
+                    this.database[RES.PLAYER_STATS].total;
+                return stats.battles
+            },
+            winRate: (tankId) => {
+                let stats = tankId ?
+                    this.database[RES.PLAYER_STATS].vehicles[tankId] :
+                    this.database[RES.PLAYER_STATS].total;
+                return round(stats.wins / stats.battles * 100, 2).toFixed(2);
+            },
+            wn8: (tankId) => {
+                let stats = tankId ?
+                    this.database[RES.PLAYER_STATS].vehicles[tankId] :
+                    this.database[RES.PLAYER_STATS].total;
+                return round(stats.wn8, 0);
+            }
         };
     }
     
@@ -116,6 +114,30 @@ class PlayerStats {
         document.getElementById('users').textContent = null;
     }
 
+    addTable() {
+        let divTotal = document.getElementById('total');
+        divTotal.textContent = null;
+        divTotal.appendChild(this.createPlayerView());
+        divTotal.appendChild(this.createTotalTable());
+        let divVehicle = document.getElementById('users');
+        divVehicle.textContent = null;
+        divVehicle.appendChild(this.createVehicleTable());
+        return this;
+    }
+
+    createPlayerView() {
+        let div = document.createElement('div');
+        div.innerText = 'player: ' + this.nickname;
+        return div;
+    }
+
+    createTotalTable() {
+        let table = document.createElement('table');
+        table.appendChild(this.createTotalTableHeader());
+        table.appendChild(this.createTotalTableBody());
+        return table;
+    }
+
     createTotalTableHeader() {
         let thead = document.createElement('thead');
         let tr = document.createElement('tr');
@@ -130,6 +152,19 @@ class PlayerStats {
         return thead;
     }
 
+    createTotalTableBody() {
+        let tbody = document.createElement('tbody');
+        tbody.appendChild(this.createTableRow(null, this.database[RES.PLAYER_STATS].total));
+        return tbody;
+    }
+
+    createVehicleTable() {
+        let table = document.createElement('table');
+        table.appendChild(this.createVehicleTableHeader());
+        table.appendChild(this.createVehicleTableBody());
+        return table;
+    }
+    
     createVehicleTableHeader() {
         let thead = document.createElement('thead');
         let tr = document.createElement('tr');
@@ -149,6 +184,16 @@ class PlayerStats {
         return thead;
     }
 
+    createVehicleTableBody() {
+        let tbody = document.createElement('tbody');
+        this.tbody = tbody;
+        this.createVehicleStats();
+        [ 'name', 'nation', 'type', 'tier' ]
+            .map(k => this.sort(k, false));
+        this.sort(null, true);
+        return tbody;
+    }
+    
     createVehicleStats() {
         const nationOrder = { ussr: 0, germany: 1, usa: 2, china: 3, france: 4,
             uk: 5, japan: 6, czech: 7, sweden: 8, poland: 9, italy: 10, '': '' };
@@ -162,7 +207,7 @@ class PlayerStats {
             if (!vehicle) {
                 vehicle = { name: '(unknown)', tier: '', nation: '', type: '', tank_id: '' };
             }
-            let row = createTableRow({ id: k, data: vehicle }, stats[k]);
+            let row = this.createTableRow(k);
             this.dom.push({
                 dom: row,
                 tier: vehicle.tier,
@@ -213,36 +258,29 @@ class PlayerStats {
 
 }
 
-PlayerStats.prototype.addTable = function(){
-    let data = this.database[RES.PLAYER_STATS];
-    {
-        let p = document.getElementById('total');
-        p.textContent = null;
-        let div = document.createElement('div');
-        p.appendChild(div);
-        div.innerText = 'player: ' + this.nickname;
-        let totalStats = document.createElement('table');
-        totalStats.appendChild(this.createTotalTableHeader());
-        totalStats.appendChild(createTableRow(null, data.total));
-        p.appendChild(totalStats);
+PlayerStats.prototype.createTableRow = function(vid){
+    let tr = document.createElement('tr');
+    if (vid !== null) {
+        let td = document.createElement('td');
+        td.className = 'name';
+        tr.appendChild(td);
+        let tankId = document.createElement('span');
+        td.appendChild(tankId);
+        tankId.className = 'tankId';
+        tankId.innerText = vid;
+        let name = document.createElement('span');
+        td.appendChild(name);
+        name.className = 'tankName';
+        name.innerText = this.value['name'](vid);
+        addTdElement(tr, 'tier', this.value['tier'](vid));
+        addTdElement(tr, 'nation', this.value['nation'](vid));
+        addTdElement(tr, 'type', this.value['type'](vid));
     }
-    {
-        let p = document.getElementById('users');
-        p.textContent = null;
-        let vehicleStats = document.createElement('table');
-        vehicleStats.appendChild(this.createVehicleTableHeader());
-        
-        let tbody = document.createElement('tbody');
-        tbody.className = 'list';
-        vehicleStats.appendChild(tbody);
-        this.tbody = tbody;
-        p.appendChild(vehicleStats);
-    }
-    this.createVehicleStats();
-    [ 'name', 'nation', 'type', 'tier' ]
-        .map(k => this.sort(k, false));
-    this.sort(null, true);
-    return this;
+    addTdElement(tr, 'battles', this.value['battles'](vid));
+    addTdElement(tr, 'winRate', this.value['winRate'](vid));
+    addTdElement(tr, 'wn8', this.value['wn8'](vid));
+    return tr
 };
+
 
 var playerStats = new PlayerStats();
